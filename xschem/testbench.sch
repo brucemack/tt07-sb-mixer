@@ -6,11 +6,8 @@ V {}
 S {}
 E {}
 T {Standard TTO Analog Pin Model} 950 280 0 0 0.3 0.3 {}
-T {External Termination} 940 710 0 0 0.3 0.3 {}
 N 340 440 340 470 {
 lab=GND}
-N 260 160 260 180 {
-lab=#net1}
 N 260 160 340 160 {
 lab=#net1}
 N 340 160 340 320 {
@@ -39,14 +36,10 @@ N 950 350 1010 350 {
 lab=ifout_p}
 N 950 530 1010 530 {
 lab=ifout_n}
-N 970 790 1150 790 {
-lab=ifout_p_2}
-N 1150 790 1150 810 {
-lab=ifout_p_2}
-N 970 930 1150 930 {
-lab=ifout_n_2}
-N 1150 930 1150 950 {
-lab=ifout_n_2}
+N 200 160 200 180 {
+lab=#net1}
+N 200 160 260 160 {
+lab=#net1}
 C {devices/code.sym} -150 -60 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
@@ -65,7 +58,6 @@ xschem raw_read $netlist_dir/[file tail [file rootname [xschem get current_name]
 "
 }
 C {sb_mixer.sym} 400 380 0 0 {name=x1}
-C {devices/vsource.sym} 260 210 0 0 {name=V1 value=3 savecurrent=false}
 C {devices/gnd.sym} 340 470 0 0 {name=l1 lab=GND}
 C {devices/ipin.sym} 190 370 0 0 {name=p4 lab=loin}
 C {devices/ipin.sym} 130 350 0 0 {name=p5 lab=rfin}
@@ -97,32 +89,33 @@ m=1}
 C {devices/opin.sym} 1190 530 0 0 {name=p9 lab=ifout_n_2}
 C {devices/lab_pin.sym} 950 350 0 0 {name=p10 sig_type=std_logic lab=ifout_p}
 C {devices/lab_pin.sym} 950 530 0 0 {name=p11 sig_type=std_logic lab=ifout_n}
-C {devices/res.sym} 1150 840 2 0 {name=R3
-value=50
-footprint=1206
-device=resistor
-m=1}
-C {devices/opin.sym} 980 790 2 0 {name=p12 lab=ifout_p_2}
-C {devices/gnd.sym} 1150 870 0 0 {name=l4 lab=GND}
-C {devices/res.sym} 1150 980 2 0 {name=R4
-value=50
-footprint=1206
-device=resistor
-m=1}
-C {devices/opin.sym} 980 930 2 0 {name=p13 lab=ifout_n_2}
-C {devices/gnd.sym} 1150 1010 0 0 {name=l5 lab=GND}
 C {devices/simulator_commands_shown.sym} -270 630 0 0 {name=COMMANDS
 simulator=ngspice
 only_toplevel=false 
 value="
-* Temporary inputs
-Vrf rfin 0 0.8
-Vlo loin 0 1.8
+*Vrf rfin 0 0.8
+Vrf rfin 0 SIN(0.8 10m 7Meg)
+* ----- Local Oscillator
+* Fixed
+* Vlo loin 0 1.8
+* Square Wave (2 MHz, period = 500ns)
+*          PULSE(V1  V2  TD TRise TFall PulseWidth Period NP)
+Vlo loin 0 PULSE(1.8 0.0 0  1n    1n    250ns      500ns  0)
 .options savecurrents
 .control
 save all
-tran 100p 2000n 1n
+tran 100p 2000n
 write testbench.raw
+*plot v(x1.lo_n) v(x1.lo_p) v(ifout_p_2) v(ifout_n_2)
+*plot v(x1.v1)
+*plot i(Vsupp)
+plot v(x1.v1)
+* Individual outputs
+plot v(ifout_p_2) v(ifout_n_2)
+* Difference (actual output)
+plot v(ifout_p_2)-v(ifout_n_2)
+wrdata out.txt v(ifout_p_2)-v(ifout_n_2)
 .endc
 "}
-C {devices/gnd.sym} 260 240 0 0 {name=l6 lab=GND}
+C {devices/vsource.sym} 200 210 0 0 {name=Vsupp value=1.8 savecurrent=false}
+C {devices/gnd.sym} 200 240 0 0 {name=l6 lab=GND}
