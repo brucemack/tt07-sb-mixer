@@ -67,10 +67,10 @@ C {devices/ipin.sym} 280 530 0 0 {name=p3 lab=LOIN}
 C {devices/ipin.sym} 290 230 0 0 {name=p4 lab=RFIN}
 C {devices/opin.sym} 280 40 0 0 {name=p5 lab=IFOUT_P}
 C {devices/opin.sym} 550 40 0 1 {name=p6 lab=IFOUT_N}
-C {sky130_stdcells/inv_1.sym} 360 530 0 0 {name=x1 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130_stdcells/inv_1.sym} 360 530 0 0 {name=x1 VGND=VSS VNB=VSS VPB=VDD VPWR=VDD prefix=sky130_fd_sc_hd__ }
 C {devices/lab_pin.sym} 430 530 1 0 {name=p7 sig_type=std_logic lab=LO_N}
 C {devices/lab_pin.sym} 560 530 1 0 {name=p8 sig_type=std_logic lab=LO_P}
-C {sky130_stdcells/inv_1.sym} 490 530 0 0 {name=x2 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130_stdcells/inv_1.sym} 490 530 0 0 {name=x2 VGND=VSS VNB=VSS VPB=VDD VPWR=VDD prefix=sky130_fd_sc_hd__ }
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 400 230 0 0 {name=M1
 L=2
 W=10
