@@ -93,7 +93,9 @@ C {devices/simulator_commands_shown.sym} -270 630 0 0 {name=COMMANDS
 simulator=ngspice
 only_toplevel=false 
 value="
+* ----- RF input
 *Vrf rfin 0 0.8
+* 7 MHz CW
 Vrf rfin 0 SIN(0.8 10m 7Meg)
 * ----- Local Oscillator
 * Fixed
@@ -104,7 +106,7 @@ Vlo loin 0 PULSE(1.8 0.0 0  1n    1n    250ns      500ns  0)
 .options savecurrents
 .control
 save all
-tran 100p 2000n
+tran 1000p 2000n
 write testbench.raw
 *plot v(x1.lo_n) v(x1.lo_p) v(ifout_p_2) v(ifout_n_2)
 *plot v(x1.v1)
