@@ -7,17 +7,19 @@ S {}
 E {}
 T {Local oscilator input on digital pin.
 Buffer LO and produce dual-polarity 
-clock for switching stage.} 230 500 0 0 0.4 0.4 {}
+clock needed for commutation stage.} 230 380 0 0 0.4 0.4 {}
 T {Load stage} 720 -40 0 0 0.4 0.4 {}
 T {Commutation stage, LO input} 720 100 0 0 0.4 0.4 {}
 T {Transconductance stage, RF input
-(RF input inlcudes DC bias)} 720 220 0 0 0.4 0.4 {}
+(RF input includes DC bias)} 720 220 0 0 0.4 0.4 {}
 T {IF Output = IFOUT_P - IFOUT_N} 720 30 0 0 0.4 0.4 {}
-N 290 440 330 440 {
+T {Single-Balanced Mixer
+   (Target: 7 MHz)} 230 -290 0 0 0.6 0.6 {}
+N 280 530 320 530 {
 lab=LOIN}
-N 410 440 460 440 {
+N 400 530 450 530 {
 lab=LO_N}
-N 540 440 570 440 {
+N 530 530 560 530 {
 lab=LO_P}
 N 290 230 380 230 {
 lab=RFIN}
@@ -58,17 +60,17 @@ lab=VSS}
 N 420 -30 420 110 {
 lab=VSS}
 N 590 110 630 110 {
-lab=LON}
-C {devices/iopin.sym} 60 -200 0 0 {name=p1 lab=VDD}
-C {devices/iopin.sym} 60 -170 0 0 {name=p2 lab=VSS}
-C {devices/ipin.sym} 290 440 0 0 {name=p3 lab=LOIN}
+lab=LO_N}
+C {devices/iopin.sym} 700 430 0 0 {name=p1 lab=VDD}
+C {devices/iopin.sym} 700 460 0 0 {name=p2 lab=VSS}
+C {devices/ipin.sym} 280 530 0 0 {name=p3 lab=LOIN}
 C {devices/ipin.sym} 290 230 0 0 {name=p4 lab=RFIN}
 C {devices/opin.sym} 280 40 0 0 {name=p5 lab=IFOUT_P}
 C {devices/opin.sym} 550 40 0 1 {name=p6 lab=IFOUT_N}
-C {sky130_stdcells/inv_1.sym} 370 440 0 0 {name=x1 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {devices/lab_pin.sym} 440 440 1 0 {name=p7 sig_type=std_logic lab=LO_N}
-C {devices/lab_pin.sym} 570 440 1 0 {name=p8 sig_type=std_logic lab=LO_P}
-C {sky130_stdcells/inv_1.sym} 500 440 0 0 {name=x2 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130_stdcells/inv_1.sym} 360 530 0 0 {name=x1 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {devices/lab_pin.sym} 430 530 1 0 {name=p7 sig_type=std_logic lab=LO_N}
+C {devices/lab_pin.sym} 560 530 1 0 {name=p8 sig_type=std_logic lab=LO_P}
+C {sky130_stdcells/inv_1.sym} 490 530 0 0 {name=x2 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 400 230 0 0 {name=M1
 L=2
 W=10
