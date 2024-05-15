@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1715797656
+timestamp 1715806127
 << metal1 >>
 rect 26480 5326 26660 5332
 rect 26660 5146 27438 5326
@@ -222,8 +222,8 @@ rect 26866 207 26867 385
 rect 27045 207 27046 385
 rect 26866 0 27046 207
 rect 31282 0 31462 1445
-use sb_mixer  sb_mixer_0
-timestamp 1715793612
+use sb_mixer  sb_mixer_0 ~/tt07-sb-mixer/mag
+timestamp 1715806127
 transform 0 -1 29296 1 0 446
 box 520 -1934 4922 3642
 << labels >>
