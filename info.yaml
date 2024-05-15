@@ -56,6 +56,9 @@ pinout:
   ua[0]: "RF input (with DC bias)"
   ua[1]: "IF output (Positive)"
   ua[2]: "IF output (Negative)"
+  ua[3]: ""
+  ua[4]: ""
+  ua[5]: ""
 
 # Do not change!
 yaml_version: 6
