@@ -1,4 +1,4 @@
-PROJECT_NAME ?= tt_um_sb_mixer
+PROJECT_NAME ?= tt_um_brucemack_sb_mixer
 MAGIC_RC := $(PDK_ROOT)/sky130A/libs.tech/magic/sky130A.magicrc
 
 .PHONY: lvs magic start
