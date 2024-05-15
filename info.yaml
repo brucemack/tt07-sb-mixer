@@ -1,9 +1,9 @@
 # Tiny Tapeout project information
 project:
-  title:        ""      # Project title
-  author:       ""      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
+  title:        "Single Balanced Mixer"      # Project title
+  author:       "Bruce MacKinnon"      # Your name
+  discord:      "BruceMacK"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "Takes an RF input (with DC bias) and a digital LO signal and mixes to provide a differential IF output.  Simulated at 7 MHz."      # One line description of what your project does
   language:     "Analog" # other examples include Verilog, Amaranth, VHDL, etc
   clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
 
@@ -11,10 +11,10 @@ project:
   tiles: "1x2"          # Valid values: 1x1 (digital only), 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # How many analog pins does your project use?
-  analog_pins: 2        # Valid values: 0 to 6
+  analog_pins: 3        # Valid values: 0 to 6
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_example"
+  top_module:  "tt_um_brucemack_sb_mixer"
 
   # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
   source_files:        
@@ -23,7 +23,7 @@ project:
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: ""
+  ui[0]: "Local Oscilator input"
   ui[1]: ""
   ui[2]: ""
   ui[3]: ""
@@ -53,12 +53,9 @@ pinout:
   uio[7]: ""
 
   # Analog pins - make sure to also set "analog_pins" above, else the pins won't be connected
-  ua[0]: ""
-  ua[1]: ""
-  ua[2]: ""
-  ua[3]: ""
-  ua[4]: ""
-  ua[5]: ""
+  ua[0]: "RF input (with DC bias)"
+  ua[1]: "IF output (Positive)"
+  ua[2]: "IF output (Negative)"
 
 # Do not change!
 yaml_version: 6

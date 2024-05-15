@@ -1,20 +1,14 @@
-<!---
+Overview
+========
 
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
+This is a simple single-balanced mixer for the HF frquency range (around
+7 MHz). The design is a switching mixer, so the local oscilator (LO) is a 
+digital signal.  
 
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
+The RF input should be biased based on the desired transconductance.
+Expected bias is around 0.8 volts.
 
-## How it works
+A differential is provided.  So the output should be the difference of
+IFOUT_P and IFOUT_N.
 
-Explain how your project works
-
-## How to test
-
-Explain how to use your project
-
-## External hardware
-
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+More to follow ....
