@@ -74,7 +74,7 @@ C {sky130_stdcells/inv_1.sym} 490 530 0 0 {name=x2 VGND=VSS VNB=VSS VPB=VDD VPWR
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 400 230 0 0 {name=M1
 L=2
 W=20
-nf=1
+nf=4
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
@@ -90,7 +90,7 @@ C {devices/lab_pin.sym} 510 230 2 0 {name=p10 sig_type=std_logic lab=VSS}
 C {sky130_fd_pr/nfet_01v8.sym} 260 110 0 0 {name=M2
 L=2
 W=10
-nf=1 
+nf=2 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
@@ -104,7 +104,7 @@ spiceprefix=X
 C {sky130_fd_pr/nfet_01v8.sym} 570 110 0 1 {name=M3
 L=2
 W=10
-nf=1 
+nf=2
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"

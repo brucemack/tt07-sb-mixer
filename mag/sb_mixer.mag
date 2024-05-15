@@ -1,0 +1,83 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1715739111
+<< pwell >>
+rect -93 236 2048 1486
+<< metal1 >>
+rect 488 3630 4002 3642
+rect 488 3442 4030 3630
+rect 1424 2820 1580 3442
+rect 3874 2814 4030 3442
+rect 1424 2266 1434 2694
+rect 1568 2266 1578 2694
+rect 520 1864 1046 2064
+rect 1246 1864 1252 2064
+rect 813 1548 851 1551
+rect 716 1510 1920 1548
+rect 813 436 851 1510
+rect 1448 490 1458 1458
+rect 1540 490 1550 1458
+rect 812 398 1920 436
+rect 0 -400 200 -200
+rect 0 -800 200 -600
+rect 0 -1200 200 -1000
+rect 0 -2000 200 -1800
+<< via1 >>
+rect 1434 2266 1568 2694
+rect 1046 1864 1246 2064
+rect 1458 490 1540 1458
+<< metal2 >>
+rect 1434 2694 1568 2704
+rect 1568 2266 1570 2286
+rect 1046 2064 1246 2070
+rect 1434 2064 1570 2266
+rect 1246 1864 1570 2064
+rect 1046 1858 1246 1864
+rect 1434 1722 1570 1864
+rect 1462 1468 1542 1722
+rect 1458 1458 1542 1468
+rect 1540 1456 1542 1458
+rect 1458 480 1540 490
+use sky130_fd_sc_hd__inv_1  x1 $PDKPATH/libs.ref/sky130_fd_sc_hd/mag
+timestamp 1704896540
+transform 1 0 0 0 1 -2000
+box -38 -48 314 592
+use sky130_fd_sc_hd__inv_1  x2
+timestamp 1704896540
+transform 1 0 314 0 1 -2048
+box -38 -48 314 592
+use sky130_fd_pr__nfet_01v8_lvt_WWWVRA  XM1
+timestamp 1715647744
+transform 1 0 3289 0 1 -1246
+box -1083 -710 1083 710
+use sky130_fd_pr__nfet_01v8_L3FTKF  XM2
+timestamp 1715647744
+transform 1 0 1503 0 1 976
+box -625 -710 625 710
+use sky130_fd_pr__nfet_01v8_L3FTKF  XM3
+timestamp 1715647744
+transform 1 0 3929 0 1 976
+box -625 -710 625 710
+use sky130_fd_pr__res_high_po_0p69_ZKG2N9  XR1
+timestamp 1715647744
+transform 1 0 1503 0 1 2751
+box -235 -651 235 651
+use sky130_fd_pr__res_high_po_0p69_ZKG2N9  XR2
+timestamp 1715647744
+transform 1 0 3929 0 1 2751
+box -235 -651 235 651
+<< labels >>
+flabel metal1 0 -400 200 -200 0 FreeSans 256 0 0 0 IFOUT_N
+port 1 nsew
+flabel metal1 0 -800 200 -600 0 FreeSans 256 0 0 0 RFIN
+port 2 nsew
+flabel metal1 0 -1200 200 -1000 0 FreeSans 256 0 0 0 VDD
+port 3 nsew
+flabel metal1 0 -2000 200 -1800 0 FreeSans 256 0 0 0 LOIN
+port 5 nsew
+flabel metal1 488 3442 688 3642 0 FreeSans 256 0 0 0 VSS
+port 4 nsew
+flabel metal1 520 1864 720 2064 0 FreeSans 256 0 0 0 IFOUT_P
+port 0 nsew
+<< end >>

@@ -102,15 +102,15 @@ Vrf rfin 0 SIN(0.8 10m 7Meg)
 * Vlo loin 0 1.8
 * Square Wave (2 MHz, period = 500ns)
 *          PULSE(V1  V2  TD TRise TFall PulseWidth Period NP)
-Vlo loin 0 PULSE(1.8 0.0 0  1n    1n    250ns      500ns  0)
+Vlo loin 0 PULSE(1.8 0.0 0  5n    5n    250ns      500ns  0)
 .options savecurrents
 .control
 save all
-tran 1000p 2000n
+tran 1n 8000n
 write testbench.raw
 *plot v(x1.lo_n) v(x1.lo_p) v(ifout_p_2) v(ifout_n_2)
-*plot v(x1.v1)
 *plot i(Vsupp)
+* Transconductance voltage
 plot v(x1.v1)
 * Individual outputs
 plot v(ifout_p_2) v(ifout_n_2)
