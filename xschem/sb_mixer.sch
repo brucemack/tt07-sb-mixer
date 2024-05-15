@@ -36,7 +36,7 @@ lab=V1}
 N 420 170 420 200 {
 lab=V1}
 N 200 110 240 110 {
-lab=LO_P}
+lab=LO_N}
 N 550 0 550 80 {
 lab=IFOUT_N}
 N 280 170 310 170 {
@@ -60,7 +60,7 @@ lab=VSS}
 N 420 -30 420 110 {
 lab=VSS}
 N 590 110 630 110 {
-lab=LO_N}
+lab=LO_P}
 C {devices/iopin.sym} 700 430 0 0 {name=p1 lab=VDD}
 C {devices/iopin.sym} 700 510 0 0 {name=p2 lab=VSS}
 C {devices/ipin.sym} 280 530 0 0 {name=p3 lab=LOIN}
@@ -127,6 +127,6 @@ spiceprefix=X
 mult=1}
 C {devices/lab_pin.sym} 420 -140 0 0 {name=p11 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} 420 10 0 0 {name=p13 sig_type=std_logic lab=VSS}
-C {devices/lab_pin.sym} 200 110 0 0 {name=p12 sig_type=std_logic lab=LO_P}
-C {devices/lab_pin.sym} 630 110 0 1 {name=p14 sig_type=std_logic lab=LO_N}
+C {devices/lab_pin.sym} 200 110 0 0 {name=p12 sig_type=std_logic lab=LO_N}
+C {devices/lab_pin.sym} 630 110 0 1 {name=p14 sig_type=std_logic lab=LO_P}
 C {devices/lab_pin.sym} 450 170 1 0 {name=p15 sig_type=std_logic lab=V1}
