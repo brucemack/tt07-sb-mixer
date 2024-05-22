@@ -1,12 +1,12 @@
 # Mixer Math
 
-I've always known that double-balanced mixers are better than single-balanced mixers at suppressing
+I've always known that double-balanced mixers are supposed ot be better than single-balanced mixers at suppressing
 unwanted mixer products, but I've never known why. This is an attempt to show the math in the 
 context of some simple MOSFET realizations of mixer circuits created for the [Tiny Tapeout](https://tinytapeout.com/).
 
-## Why Does the LO "Leak" in a Single-Balanced MOSFET Mixer?
+## Why Does the LO "Leak" Through a Single-Balanced MOSFET Mixer?
 
-An ideal mixer takes RF and local oscillator (LO) signals and produces an intermediate frequency (IF) output 
+An ideal mixer takes RF and local oscillator (LO) signals and produces an intermediate frequency (IF) 
 signal at the sum (RF+LO) and difference (RF-LO) frequencies. 
 A single-balanced mixer is a simple circuit that exhibits non-ideal behavior by allowing either the RF or LO 
 signal (depending on configuration) to 
