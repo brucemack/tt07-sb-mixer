@@ -1,19 +1,23 @@
 # Mixer Math
 
+I've always known that double-balanced mixers are better than single-balanced mixers at suppressing
+unwanted mixer products, but I've never known why. This is an attempt to show the math in the 
+context of some simple MOSFET realizations of mixer circuits created for the [Tiny Tapeout](https://tinytapeout.com/).
+
 ## Why Does the LO Leak in a Single-Balanced MOSFET Mixer?
 
 An ideal mixer takes RF and local oscilator (LO) signals and produces an intermediate frequency (IF) output 
 signal at the sum (RF+LO) and difference (RF-LO) frequencies. 
 A single-balanced mixer is a simple circuit, but it exhibits a non-ideal behavior by allowing either the RF or LO 
 signal (depending on configuration) to 
-appear at the output in addition to the desired RF+LO and RF-LO signals. Often times this undesired mixer output 
+appear at the output _in addition to_ the desired RF+LO and RF-LO signals. Often times this undesired mixer output 
 is referred to as "leakage."
 
-In the case of the single-balanced mixer, I don't think it's really accurate to call this undesired output 
-"leakage" because _the circuit was never designed to suppress it in the first place._ But we'll stick with this
+In the case of the single-balanced mixer, I don't think it's accurate to call this undesired output 
+"leakage" because _the circuit was never designed to suppress the extra output in the first place._ But we'll stick with this
 term for now. Whatever we call it, it is important to understand the mathematical reason for this undesired mixer output.
 
-For this analysis we will use the following diagram of a single-balanced MOSFET mixer:
+For this analysis we will use the following diagram of a simple single-balanced MOSFET mixer:
 
 ![Gilbert Cell](IMG_0956.jpg)
 
@@ -25,6 +29,7 @@ would leak by exactly the same argument.
 * Assume that we are talking about a switching mixer (sometimes called a commuting mixer) driven by an LO signal 
 that is a square wave.  This is a common situation that comes up in radio circuits that use digitally-controlled 
 tuning.  The LO is often created by a digital PLL that outputs a logic-level square wave.
+* Assume that the RF input has a DC bias included to keep the bottom FET (the )
 
 Getting formal, assume that:
 
@@ -90,7 +95,8 @@ $$\ y(t) = l(t) - r(t) = R \cdot w(t) (B_l + g_mAcos(\omega_Rt)) + w(t) (B_r + g
 $$\ y(t) = R \cdot w(t) (B_l + B_r) + 2 w(t) g_mAcos(\omega_Rt) $$
 
 This is the most important part of the analysis. Notice that for any $\ B_l$ and $\ B_r$ where $\ B_l \neq -B_r$ **we end up with a 
-scaled copy of $\ w(t)$ in the output of the mixer.**  The $\ V_{DD}$ offset goes away, but unless $\ B_l$ and $\ B_r$ are offsetting, the
+scaled copy of $\ w(t)$ in the output of the mixer.**  The $\ V_{DD}$ offset goes away, but unless $\ B_l$ and $\ B_r$ are offsetting
+somehow, the
 LO will be present in $\ y(t)$.  That's not a leak, that's just how the circuit is designed to work.
 
 Jumping ahead, the fundamental concept in the design of a double-balanced mixer is to arrange the circuit in such away that 
