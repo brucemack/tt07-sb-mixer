@@ -35,7 +35,7 @@ saturation.
 Getting formal, assume that:
 
 * The LO signal is represented by a square wave $\ w(t)$ that alternates between 1 and 0 at an angular
-frequency of $\ \omega_L $ radians/second. 
+frequency of $\ \omega_L $ radians/second and has a 50% duty cycle.
 * The RF signal $\ x(t)$ is a voltage that is applied to the transconductance stage of the mixer to produce an RF current of $\ g_mx(t)$.
 * The LO square wave switches the RF-modulated current $\ g_mx(t)$ between two tails of the mixer circuit.
 * There is a load resistance of $\ R$ in each tail.  
