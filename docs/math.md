@@ -40,11 +40,11 @@ frequency of $\ \omega_L $ radians/second.
 * The LO square wave switches the RF-modulated current $\ g_mx(t)$ between two tails of the mixer circuit.
 * There is a load resistance of $\ R$ in each tail.  
 * The voltage at the top of each tail is $\ V_{DD}$. This is the "off" level of the tail.
-* The bias current brings the left tail's "on" voltage down by $\ RB_{L}$ volts or the right tail's "on" voltage by $\ RB_{R}$.  So 
-with no RF input the "DC on" level of the left tail is $\ V_{DD} - RB_L$ and the right tail is left tail is $\ V_{DD} - RB_R$.  Normally 
-we would expect $\ B_L$ = $\ B_R $ since the circuit is symmetric.
-* When on, the output voltage on the left tail $\ l(t) = V_{DD} - R \cdot ( B_L + g_mx(t))$.
-* When on, the output voltage on the right tail $\ r(t) = V_{DD} - R \cdot ( B_R + g_mx(t))$.
+* The bias current brings the left tail's "on" voltage down by $\ RB_{LT}$ volts or the right tail's "on" voltage by $\ RB_{RT}$.  So 
+with no RF input the "DC on" level of the left tail is $\ V_{DD} - RB_{LT}$ and the right tail is left tail is $\ V_{DD} - RB_{RT}$.  Normally 
+we would expect $\ B_{LT}$ = $\ B_{RT}$ since the circuit is symmetric.
+* When on, the output voltage on the left tail $\ l(t) = V_{DD} - R \cdot ( B_{LT} + g_mx(t))$.
+* When on, the output voltage on the right tail $\ r(t) = V_{DD} - R \cdot ( B_{RT} + g_mx(t))$.
 
 The on/off switching action of the mixer can be thought of as a multiplication of the RF signal by the LO square wave 
 that alternates between 1 and 0.  When the LO 
@@ -58,9 +58,9 @@ $$\ y(t) = l(t) - r(t)$$
 The mixing action applies the LO to each tail in alternating opposite phase, so a time shift of $\ (2 \pi / \omega_L) / 2$ seconds needs to 
 be applied to the LO input on one tail of the mixer.
 
-$$\ l(t) = V_{DD} - R \cdot w(t) ( B_L + g_mx(t) )$$
+$$\ l(t) = V_{DD} - R \cdot w(t) ( B_{LT} + g_mx(t) )$$
 
-$$\ r(t) = V_{DD} - R \cdot w(t + \pi/\omega_L) (B_R + g_mx(t))$$
+$$\ r(t) = V_{DD} - R \cdot w(t + \pi/\omega_L) (B_{RT} + g_mx(t))$$
 
 At this point we make two important assumptions that help with the mathematical analysis:
 
@@ -79,27 +79,27 @@ $$\ w(t) = -w(t + \pi/\omega_L) $$
 
 Back to the mixer output components:
 
-$$\ l(t) = V_{DD} - R \cdot w(t) (B_L + g_mAcos(\omega_Rt)) $$
+$$\ l(t) = V_{DD} - R \cdot w(t) (B_{LT} + g_mAcos(\omega_Rt)) $$
 
-$$\ r(t) = V_{DD} - R \cdot w(t + \pi/\omega_L) (B_R + g_mAcos(\omega_Rt)) $$
+$$\ r(t) = V_{DD} - R \cdot w(t + \pi/\omega_L) (B_{RT} + g_mAcos(\omega_Rt)) $$
 
 Keeping in mind the above property of a phase-shifted sinusoidal series:
 
-$$\ l(t) = V_{DD} - R \cdot w(t) (B_L + g_mAcos(\omega_Rt)) $$
+$$\ l(t) = V_{DD} - R \cdot w(t) (B_{LT} + g_mAcos(\omega_Rt)) $$
 
-$$\ r(t) = V_{DD} + R \cdot w(t) (B_R + g_mAcos(\omega_Rt)) $$
+$$\ r(t) = V_{DD} + R \cdot w(t) (B_{RT} + g_mAcos(\omega_Rt)) $$
 
 So combining to form the IF output of the mixer:
 
 $$\ y(t) = l(t) - r(t)$$
 
-$$\ y(t) = R \cdot (w(t) (B_L + g_mAcos(\omega_Rt)) + w(t) (B_R + g_mAcos(\omega_Rt)))$$
+$$\ y(t) = R \cdot (w(t) (B_{LT} + g_mAcos(\omega_Rt)) + w(t) (B_{RT} + g_mAcos(\omega_Rt)))$$
 
-$$\ y(t) = R \cdot (w(t) (B_L + B_R) + 2 w(t) g_mAcos(\omega_Rt))$$
+$$\ y(t) = R \cdot (w(t) (B_{LT} + B_{RT}) + 2 w(t) g_mAcos(\omega_Rt))$$
 
-This is the most important part of the analysis. Notice that for any $\ B_L$ and $\ B_R$ where $\ B_L \neq -B_R$ **we end up with a 
-scaled copy of $\ w(t)$ in the output of the mixer.**  The $\ V_{DD}$ offset goes away, but unless $\ B_l$ and $\ B_r$ are offsetting
-somehow, the
+This is the most important part of the analysis. Notice that for any $\ B_{LT}$ and $\ B_{RT}$ where $\ B_{LT} \neq -B_{RT}$ **we end up with a 
+scaled copy of $\ w(t)$ in the output of the mixer.**  The $\ V_{DD}$ offset goes away, but unless $\ B_{LT}$ and $\ B_{RT}$ are offsetting
+in some sense, the
 LO will be present in $\ y(t)$.  That's not a leak, that's just how the circuit is designed to work.
 
 This can be seen by examining a simulated output of the simple mixer circuit:
@@ -107,7 +107,7 @@ This can be seen by examining a simulated output of the simple mixer circuit:
 ![Demo1](img1.jpg)
 
 In this picture the LO switching action is quite pronounced, so it's not surprising that LO energy appears in the 
-output IF.  $\ B_L + B_R$ is on the order of 300mV (with some other scaling factors ignored).
+output IF.  $\ B_{LT} + B_{RT}$ is on the order of 300mV (with some other scaling factors ignored).
 
 Jumping ahead, the fundamental concept in the design of a double-balanced mixer is to arrange the circuit in such away that 
 the $\ B$ terms cancel each other, at least conceptually. 
@@ -124,7 +124,7 @@ and is taken as the difference of the two tail voltages: $\ l(t) - r(t)$.
 
 Because of the clever cross-connects in this circuit, each tail experiences current contribution 
 from the positive and negative ends of the RF signal $\ x(t)$ at the same time. Similarly, each 
-tail experiences part of the bias currents $\ B_R$ and $\ B_L$.
+tail experiences part of the bias currents $\ B_{RT}$ and $\ B_{LT}$.
 
 As before, let the RF signal be represented by a cosine function:
 
@@ -132,9 +132,9 @@ $$\ x(t) = Acos(\omega_Rt) $$
 
 We write the expression for the output voltage in the left and right tails of the circuit:
 
-$$\ l(t) = V_{DD} - R \cdot \left( w(t){g_mAcos(\omega_Rt) \over 2} + w(t)B_L + w(t+\pi/\omega_L){-g_mAcos(\omega_Rt) \over 2} + w(t+\pi/\omega_L)B_R \right) $$
+$$\ l(t) = V_{DD} - R \cdot \left( w(t){g_mAcos(\omega_Rt) \over 2} + w(t)B_{LT} + w(t+\pi/\omega_L){-g_mAcos(\omega_Rt) \over 2} + w(t+\pi/\omega_L)B_{RT} \right) $$
 
-$$\ r(t) = V_{DD} - R \cdot \left( w(t+\pi/\omega_L){g_mAcos(\omega_Rt) \over 2} + w(t+\pi/\omega_L)B_L + w(t){-g_mAcos(\omega_Rt) \over 2} + w(t)B_R \right) $$
+$$\ r(t) = V_{DD} - R \cdot \left( w(t+\pi/\omega_L){g_mAcos(\omega_Rt) \over 2} + w(t+\pi/\omega_L)B_{LT} + w(t){-g_mAcos(\omega_Rt) \over 2} + w(t)B_{RT} \right) $$
 
 Taking advantage of this relationship again:
 
@@ -142,13 +142,13 @@ $$\ w(t) = -w(t + \pi/\omega_L) $$
 
 And taking the difference of the two tail output voltages we end up with:
 
-$$\ y(t) = R \cdot ( 4w(t){g_mAcos(\omega_Rt) \over 2} + 2w(t)(B_L - B_R) ) $$
+$$\ y(t) = R \cdot ( 4w(t){g_mAcos(\omega_Rt) \over 2} + 2w(t)(B_{LT} - B_{RT}) ) $$
 
-And this leads to the important result.  Unlike the the single-balanced case where $\ B_L$ and $\ B_R$ are added, 
-in the double-balanced case they are subtracted.  So when $\ B_L = B_R$ the right-hand term that involves the 
+And this leads to the important result.  Unlike the the single-balanced case where $\ B_{LT}$ and $\ B_{RT}$ are added, 
+in the double-balanced case they are subtracted.  So when $\ B_{LT} = B_{RT}$ the right-hand term that involves the 
 raw LO signal $\ w(t)$ drops out entirely.  That is the mathematical definition of LO suppression.
 
-This highlights the criticality of symmetry in this circuit. Any mismatch between $\ B_L$ and $\ B_R$ will allow 
+This highlights the criticality of symmetry in this circuit. Any mismatch between $\ B_{LT}$ and $\ B_{RT}$ will allow 
 some component of the LO signal to leak into the mixer output.
 
 
