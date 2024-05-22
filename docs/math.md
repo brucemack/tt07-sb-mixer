@@ -7,7 +7,7 @@ context of some simple MOSFET realizations of mixer circuits created for the [Ti
 ## Why Does the LO "Leak" Through a Single-Balanced MOSFET Mixer?
 
 An ideal mixer takes RF and local oscillator (LO) signals and produces an intermediate frequency (IF) 
-signal at the sum (RF+LO) and difference (RF-LO) frequencies. 
+signal at the sum ($\ \omega_R + \omega_L$) and difference ($\ \omega_R - \omega_L$) frequencies. 
 A single-balanced mixer is a simple circuit that exhibits non-ideal behavior by allowing either the RF or LO 
 signal (depending on configuration) to 
 appear at the output _in addition to_ the desired RF+LO and RF-LO signals. Often times this undesired mixer output 
