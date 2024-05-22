@@ -130,7 +130,9 @@ As before, let the RF signal be represented by a cosine function:
 
 $$\ x(t) = Acos(\omega_Rt) $$
 
-We write the expression for the output voltage in the left and right tails of the circuit:
+We write the expression for the output voltage in the left and right tails of the circuit.  Again, we leverage the 
+un-delayed phase of the square wave $\ w(t)$ and the delayed phase $\ w(t + \pi/\omega_L)$ to achieve the desired
+switching between the left and right tails of the circuit:
 
 $$\ l(t) = V_{DD} - R \cdot \left( w(t){g_mAcos(\omega_Rt) \over 2} + w(t)B_{LT} + w(t+\pi/\omega_L){-g_mAcos(\omega_Rt) \over 2} + w(t+\pi/\omega_L)B_{RT} \right) $$
 
