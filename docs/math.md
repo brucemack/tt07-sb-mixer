@@ -79,7 +79,8 @@ This is the most important part of the analysis. Notice that for any $\ B_l$ and
 scaled copy of $\ w(t)$ in the output of the mixer.**  The $\ V_{DD}$ offset goes away, but unless $\ B_l$ and $\ B_r$ are offsetting, the
 LO will be present.  That's not a leak, that's part of the design.
 
-The fundamental concept in the design of a double-balanced mixer is to arrange the circuit in such away that $\ B_l = -B_r$. Any
+The fundamental concept in the design of a double-balanced mixer is to arrange the circuit in such away that $\ B_l = -B_r$, at least 
+conceptually. Any
 small imperfection in this balance will result in a small $\ w(t)$ output which can be legitimately be considered to be a leak.
 
 Moving on through the rest of the analysis.
@@ -91,6 +92,36 @@ $$\ w(t) = {4 \over \pi} sin(\omega_Lt) + h(t)$$
 
 where $\ h(t)$ represents the n>=3 terms of the odd harmonic series.
 
+## How is the LO Suppressed in the Double-Balanced MOSFET Mixer?
+
+Because of the cross-connects in this circuit, each tail experiences current contribution 
+from the positive and negative phases of the RF signal $\ x(t)$ at the same time. Similarly, each 
+tail experiences part of the bias currents $\ B_r$ and $\ B_l$.
+
+As before, let the RF signal be represented by a cosine function:
+
+$$\ x(t) = Acos(\omega_Rt) $$
+
+Write the expression for the output voltage in the left and right tails of the circuit:
+
+$$\ l(t) = V_{DD} - R \cdot ( w(t){g_mAcos(\omega_Rt) \over 2} + w(t)B_l + w(t+\pi/\omega_L){-g_mAcos(\omega_Rt) \over 2} + w(t+\pi/\omega_L)B_r ) $$
+
+$$\ r(t) = V_{DD} - R \cdot ( w(t+\pi/\omega_L){g_mAcos(\omega_Rt) \over 2} + w(t+\pi/\omega_L)B_l + w(t){-g_mAcos(\omega_Rt) \over 2} + w(t)B_r ) $$
+
+Taking advantage of this relationship again:
+
+$$\ w(t) = -w(t + \pi/\omega_L) $$
+
+And taking the difference of the two tail output voltages we end up with:
+
+$$\ y(t) = R \cdot ( 4w(t){g_mAcos(\omega_Rt) \over 2} + 2w(t)(B_l - B_r) ) $$
+
+And this leads to the important result.  Unlike the the single-balanced case where $\ Br$ and $\ B_l$ are added, 
+in the double-balanced case they are subtracted.  So when $\ Br = B_l$ the right-hand term that involves the 
+raw LO signal $\ w(t)$ drops out.  That is the mathematical definition of LO suppression.
+
+This highlights the criticality of symmetry in this circuit. Any mismatch between $\ Br$ and $\ B_l$ will allow 
+some component of the LO signal to leak into the mixer output.
 
 
 
