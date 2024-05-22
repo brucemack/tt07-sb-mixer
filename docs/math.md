@@ -1,6 +1,6 @@
 # Mixer Math
 
-I've always known that double-balanced mixers are supposed ot be better than single-balanced mixers at suppressing
+I've always known that double-balanced mixers are supposed to be better than single-balanced mixers at suppressing
 unwanted mixer products, but I've never known why. This is an attempt to show the math in the 
 context of some simple MOSFET realizations of mixer circuits created for the [Tiny Tapeout](https://tinytapeout.com/).
 
@@ -10,8 +10,8 @@ An ideal mixer takes RF and local oscillator (LO) signals and produces an interm
 signal at the sum ($\ \omega_R + \omega_L$) and difference ($\ \omega_R - \omega_L$) frequencies. 
 A single-balanced mixer is a simple circuit that exhibits non-ideal behavior by allowing either the RF or LO 
 signal (depending on configuration) to 
-appear at the output _in addition to_ the desired RF+LO and RF-LO signals. Often times this undesired mixer output 
-is referred to as "leakage."
+appear at the output _in addition to_ the desired ($\ \omega_R + \omega_L$) and ($\ \omega_R - \omega_L$) signals. Often 
+times this undesired mixer output is referred to as "leakage."
 
 In the case of the single-balanced mixer, I don't think it's accurate to call this undesired output 
 "leakage" because _the circuit was never designed to suppress the extra output in the first place._ But we'll stick with this
