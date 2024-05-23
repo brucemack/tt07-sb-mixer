@@ -12,13 +12,9 @@ N 260 160 340 160 {
 lab=#net1}
 N 340 160 340 320 {
 lab=#net1}
-N 190 370 250 370 {
-lab=loin}
-N 130 350 250 350 {
-lab=rfin}
-N 550 370 620 370 {
+N 530 370 600 370 {
 lab=ifout_p}
-N 550 390 710 390 {
+N 530 390 690 390 {
 lab=ifout_n}
 N 1010 350 1010 380 {
 lab=ifout_p}
@@ -40,6 +36,12 @@ N 200 160 200 180 {
 lab=#net1}
 N 200 160 260 160 {
 lab=#net1}
+N 160 350 230 350 {
+lab=loin}
+N 100 380 230 380 {
+lab=rfin_p}
+N 40 400 230 400 {
+lab=rfin_n}
 C {devices/code.sym} -150 -60 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
@@ -57,12 +59,11 @@ xschem raw_read $netlist_dir/[file tail [file rootname [xschem get current_name]
 
 "
 }
-C {sb_mixer.sym} 400 380 0 0 {name=x1}
 C {devices/gnd.sym} 340 470 0 0 {name=l1 lab=GND}
-C {devices/ipin.sym} 190 370 0 0 {name=p4 lab=loin}
-C {devices/ipin.sym} 130 350 0 0 {name=p5 lab=rfin}
-C {devices/opin.sym} 620 370 0 0 {name=p6 lab=ifout_p}
-C {devices/opin.sym} 710 390 0 0 {name=p7 lab=ifout_n}
+C {devices/ipin.sym} 170 350 0 0 {name=p4 lab=loin}
+C {devices/ipin.sym} 100 380 0 0 {name=p5 lab=rfin_p}
+C {devices/opin.sym} 600 370 0 0 {name=p6 lab=ifout_p}
+C {devices/opin.sym} 690 390 0 0 {name=p7 lab=ifout_n}
 C {devices/capa.sym} 1010 410 0 0 {name=C1
 m=1
 value=5p
@@ -96,7 +97,9 @@ value="
 * ----- RF input
 *Vrf rfin 0 0.8
 * 7 MHz CW
-Vrf rfin 0 SIN(0.8 10m 7Meg)
+*                 VOFF VAMP FREQ TDEL DAMP DEG
+Vrfp rfin_p 0 SIN(0.8  10m  7Meg 0    0    0)
+Vrfn rfin_n 0 SIN(0.8  10m  7Meg 0    0    180)
 * ----- Local Oscillator
 * Fixed
 * Vlo loin 0 1.8
@@ -108,10 +111,12 @@ Vlo loin 0 PULSE(1.8 0.0 0  5n    5n    250ns      500ns  0)
 save all
 tran 1n 8000n
 write testbench.raw
-*plot v(x1.lo_n) v(x1.lo_p) v(ifout_p_2) v(ifout_n_2)
+*plot v(x1.lo_n) v(x1.lo_p) 
 *plot i(Vsupp)
-* Transconductance voltage
+* Bias voltage
 plot v(x1.v1)
+* Transconductance voltages
+plot v(x1.v2l) v(x1.v2r)
 * Individual outputs
 plot v(ifout_p_2) v(ifout_n_2)
 * Difference (actual output)
@@ -121,3 +126,5 @@ wrdata out.txt v(ifout_p_2)-v(ifout_n_2)
 "}
 C {devices/vsource.sym} 200 210 0 0 {name=Vsupp value=1.8 savecurrent=false}
 C {devices/gnd.sym} 200 240 0 0 {name=l6 lab=GND}
+C {db_mixer.sym} 380 380 0 0 {name=x1}
+C {devices/ipin.sym} 40 400 0 0 {name=p1 lab=rfin_n}
