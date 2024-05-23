@@ -66,7 +66,7 @@ At this point we make two important assumptions that help with the mathematical 
 
 * We can represent the RF signal $\ x(t)$ as a sinusoid, knowing that any arbitrary RF signal could be represented by a more complex series of harmonic sinusoids.
 
-$$\ y(t) = A cos(\omega_Rt)$$
+$$\ x(t) = A cos(\omega_Rt)$$
 
 * We can represent the square wave of frequency $\ \omega_L$ as an infinite sum of the *odd* sinusoidal harmonics of $\ \omega_L$:
 
