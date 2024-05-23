@@ -93,9 +93,9 @@ So combining to form the IF output of the mixer:
 
 $$\ y(t) = l(t) - r(t)$$
 
-$$\ y(t) = R \cdot (w(t) (B_{LT} + g_mAcos(\omega_Rt)) + w(t) (B_{RT} + g_mAcos(\omega_Rt)))$$
+$$\ y(t) = R \cdot \left( w(t) (B_{LT} + g_mAcos(\omega_Rt)) + w(t) (B_{RT} + g_mAcos(\omega_Rt)) \right) $$
 
-$$\ y(t) = R \cdot (w(t) (B_{LT} + B_{RT}) + 2 w(t) g_mAcos(\omega_Rt))$$
+$$\ y(t) = R \cdot \left( w(t) (B_{LT} + B_{RT}) + 2 w(t) g_mAcos(\omega_Rt) \right) $$
 
 This is the most important part of the analysis. Notice that for any $\ B_{LT}$ and $\ B_{RT}$ where $\ B_{LT} \neq -B_{RT}$ **we end up with a 
 scaled copy of $\ w(t)$ in the output of the mixer.**  The $\ V_{DD}$ offset goes away, but unless $\ B_{LT}$ and $\ B_{RT}$ are offsetting
