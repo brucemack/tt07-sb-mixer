@@ -15,7 +15,7 @@ is the frequency shifting property that makes mixers so important in radio circu
 mixer is a simple circuit 
 that exhibits some non-ideal behavior by allowing either the RF or LO 
 signal (depending on configuration) to 
-appear at the output _in addition to_ the desired ($\ \omega_R + \omega_L$) and ($\ \omega_R - \omega_L$) signals. Often 
+appear at the output _in addition to_ the desired ($\ \omega_R + \omega_L$) and ($\ \omega_R - \omega_L$) IF signals. Often 
 times this undesired mixer output is referred to as "leakage."
 
 In the common situation where the mixer is being used in the final down-conversion stage of a receiver (i.e. 
