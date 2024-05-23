@@ -1,5 +1,7 @@
 # Mixer Math
 
+(Bruce MacKinnon, 22-May-2024)
+
 I've always known that double-balanced mixers are supposed to be better than single-balanced mixers at suppressing
 unwanted mixer products, but I've never known why. This is an attempt to show the math in the 
 context of some simple MOSFET realizations of mixer circuits created for my [Tiny Tapeout](https://tinytapeout.com/) 
@@ -112,7 +114,7 @@ in some sense, the
 LO will be present in $\ y(t)$.  That's not a leak, that's just how the circuit is designed to work.
 
 This can be seen by examining a simulated output of the simple mixer circuit.  This was produced using 
-a circuit created using Sky130 devices and NGSPICE:
+a circuit created using Sky130 technology models and NGSPICE:
 
 ![Demo1](img1.jpg)
 
@@ -172,7 +174,7 @@ All of this highlights the criticality of symmetry in this circuit. Any mismatch
 some component of the LO signal to leak into the mixer output. In this situation it's legit to use the term "leak."
 
 The benefit of this circuit can be seen by examining a simulated output of the simple mixer circuit.  These traces were produced using 
-a circuit created using Sky130 devices and NGSPICE.
+a circuit created using Sky130 technology models and NGSPICE.
 
 Here we plot the tail output voltages.  The left tail is red and the right tail is blue. The green marks along the top indicate 
 the LO clock frequency.  As you can see in this picture: unlike the single balanced picture above, there is no LO-driven square 
