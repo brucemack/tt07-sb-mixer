@@ -184,7 +184,7 @@ $$\ y(t) = R \cdot \left( 2w(t){g_mAcos(\omega_Rt) \over 2} + 2w(t)(B_{LT} - B_{
 There are two important take-aways here:
 
 * By setting $\ B_{LT} = B_{RT}$ and $\ C_1$ = 0 we will eliminate the LO component on the output, as desired.  **IMPORTANT NOTE:** 
-Setting $\ C_1$ = 0 doesn't mean tying that input to ground. It just means ensuring that the AC component of the right side
+Setting $\ C_1$ = 0 doesn't mean that we tie that input to ground. It does means that we must ensure that the AC component of the right side
 of the RF input is at *AC ground* potential, considering the existing biasing requirements.
 * The factor of 4 in the original $\ 4w(t){g_mAcos(\omega_Rt) \over 2}$ term is reduced to 2, so the output amplitude of the IF 
 signal is cut in half, as expected.
