@@ -35,10 +35,10 @@ saturation.
 Getting formal, assume that:
 
 * The LO signal is represented by a square wave $\ w(t)$ that alternates between 1 and 0 at an angular
-frequency of $\ \omega_L $ radians/second and has a 50% duty cycle.
+frequency of $\ \omega_L$ radians/second and has a 50% duty cycle.
 * The RF signal $\ x(t)$ is a voltage that is applied to the transconductance stage of the mixer to produce an RF current of $\ g_mx(t)$.
 * The LO square wave switches the RF-modulated current $\ g_mx(t)$ between two tails of the mixer circuit.
-* There is a load resistance of $\ R$ in each tail.  
+* There is a load resistance of $\ R$ at the top of each tail.  
 * The voltage at the top of each tail is $\ V_{DD}$. This is the "off" level of the tail.
 * The bias current brings the left tail's "on" voltage down by $\ RB_{LT}$ volts or the right tail's "on" voltage by $\ RB_{RT}$.  So 
 with no RF input the "DC on" level of the left tail is $\ V_{DD} - RB_{LT}$ and the right tail is left tail is $\ V_{DD} - RB_{RT}$.  Normally 
