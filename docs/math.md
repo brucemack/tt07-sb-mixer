@@ -2,7 +2,8 @@
 
 I've always known that double-balanced mixers are supposed to be better than single-balanced mixers at suppressing
 unwanted mixer products, but I've never known why. This is an attempt to show the math in the 
-context of some simple MOSFET realizations of mixer circuits created for the [Tiny Tapeout](https://tinytapeout.com/).
+context of some simple MOSFET realizations of mixer circuits created for my [Tiny Tapeout](https://tinytapeout.com/) 
+project.
 
 ## Why Does the LO "Leak" Through a Single-Balanced MOSFET Mixer?
 
@@ -14,6 +15,11 @@ that exhibits some non-ideal behavior by allowing either the RF or LO
 signal (depending on configuration) to 
 appear at the output _in addition to_ the desired ($\ \omega_R + \omega_L$) and ($\ \omega_R - \omega_L$) signals. Often 
 times this undesired mixer output is referred to as "leakage."
+
+In the common situation where the mixer is being used in the final down-conversion stage of a receiver (i.e. 
+RF and LO are close together and the IF is the base band signal), the difference product from the mixer is 
+low-pass filtered so the presence of energy at the RF, LO, and RF+LO frequencies is not a problem - it's all being 
+filtered away anyhow.  But in intermediate conversions stages the extra mixer outputs may create a problem.
 
 In the case of the single-balanced mixer, I don't think it's accurate to call this undesired output 
 "leakage" because _the circuit was never designed to suppress the extra output in the first place._ But we'll stick with this
