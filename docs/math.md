@@ -111,7 +111,8 @@ scaled copy of $\ w(t)$ in the output of the mixer.**  The $\ V_{DD}$ offset goe
 in some sense, the
 LO will be present in $\ y(t)$.  That's not a leak, that's just how the circuit is designed to work.
 
-This can be seen by examining a simulated output of the simple mixer circuit:
+This can be seen by examining a simulated output of the simple mixer circuit.  This was produced using 
+a circuit created using Sky130 devices and NGSPICE:
 
 ![Demo1](img1.jpg)
 
@@ -159,8 +160,34 @@ And this leads to the important result.  Unlike the the single-balanced case whe
 in the double-balanced case they are subtracted.  So when $\ B_{LT} = B_{RT}$ the right-hand term that involves the 
 raw LO signal $\ w(t)$ drops out entirely.  That is the mathematical definition of LO suppression.
 
-This highlights the criticality of symmetry in this circuit. Any mismatch between $\ B_{LT}$ and $\ B_{RT}$ will allow 
+Actually, looking at this more closely we can see that the LO cancellation happens **in each tail independently** - you don't 
+need to combine the differential phases of the output to see this. When $\ B_{LT} = B_{RT}$ we can cancel terms in the 
+tail voltage expressions:
+
+$$\ l(t) = V_{DD} - R \cdot \left( w(t){g_mAcos(\omega_Rt) \over 2} + w(t+\pi/\omega_L){-g_mAcos(\omega_Rt) \over 2} \right) $$
+
+$$\ r(t) = V_{DD} - R \cdot \left( w(t+\pi/\omega_L){g_mAcos(\omega_Rt) \over 2} + w(t){-g_mAcos(\omega_Rt) \over 2} \right) $$
+
+All of this highlights the criticality of symmetry in this circuit. Any mismatch between $\ B_{LT}$ and $\ B_{RT}$ will allow 
 some component of the LO signal to leak into the mixer output. In this situation it's legit to use the term "leak."
+
+The benefit of this circuit can be seen by examining a simulated output of the simple mixer circuit.  These traces were produced using 
+a circuit created using Sky130 devices and NGSPICE.
+
+Here we plot the tail output voltages.  The left tail is red and the right tail is blue. The green marks along the top indicate 
+the LO clock frequency.  As you can see in this picture: unlike the single balanced picture above, there is no LO-driven square 
+wave visible in either tail.
+
+![Gilbert Cell](db1.jpg)
+
+The vertical "glitches" in the picture above highlight an important non-ideal behavior of this circuit that needs to be 
+managed.  The two sides of the switching stage of the circuit are driven by the opposite phases of the LO.  Any tiny 
+difference between the devices, capacitance, or general topology in the circuit can result in a small window of time
+when a large imbalance may exist.  This will certainly be visible as LO energy (and harmonics thereof) in the IF output.
+
+The differential output is even cleaner.  All we see is the phase shift at each LO cycle tick (as indicated by the green marks).
+
+![Gilbert Cell](db2.jpg)
 
 ## Can a Double-Balanced Mixer Be Driven By a Single-Ended RF Signal?
 
