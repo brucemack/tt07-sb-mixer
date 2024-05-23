@@ -1,8 +1,8 @@
 Overview
 ========
 
-This is a simple single-balanced RF mixer for the HF frquency range (around
-7 MHz). The design is a switching mixer, so the local oscilator (LO) is a 
+This is a simple single-balanced RF mixer for the HF frequency range (around
+7 MHz). The design is a switching mixer, so the local oscillator (LO) is a 
 digital signal.  
 
 The RF input should be DC biased. Expected bias is around 0.6 volts.
@@ -16,4 +16,7 @@ More to follow ....
 
 Details 
 =======
+
+The [detailed document here](https://github.com/brucemack/tt07-sb-mixer/blob/main/docs/math.md) gets 
+into the mathematical basis for the circuit design used.
 
