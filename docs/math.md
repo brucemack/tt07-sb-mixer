@@ -161,7 +161,7 @@ double-balanced design can be driven using a singled-ended RF signal.
 
 A common technique used to apply 
 a single-ended signal to a differential amplifier is to tie one of the two inputs of the diff-amp to a fixed DC bias. This
-section attempts to validate whether this approach will still work.  
+section attempts to validate whether the double-balanced mixer will still work under this arrangement.  
 
 The diagram below illustrates the proposed arrangement:
 
