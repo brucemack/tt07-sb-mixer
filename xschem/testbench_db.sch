@@ -40,8 +40,6 @@ N 160 350 230 350 {
 lab=loin}
 N 100 380 230 380 {
 lab=rfin_p}
-N 40 400 230 400 {
-lab=rfin_n}
 C {devices/code.sym} -150 -60 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
@@ -98,8 +96,10 @@ value="
 *Vrf rfin 0 0.8
 * 7 MHz CW
 *                 VOFF VAMP FREQ TDEL DAMP DEG
-Vrfp rfin_p 0 SIN(0.8  10m  7Meg 0    0    0)
-Vrfn rfin_n 0 SIN(0.8  10m  7Meg 0    0    180)
+Vrfp rfin_p 0 SIN(0.9  10m  7Meg 0    0    0)
+Vrfn rfin_n 0 SIN(0.9  10m  7Meg 0    0    180)
+* Temp
+*Vrfn rfin_n 0 DC 0.8
 * ----- Local Oscillator
 * Fixed
 * Vlo loin 0 1.8
@@ -127,4 +127,3 @@ wrdata out.txt v(ifout_p_2)-v(ifout_n_2)
 C {devices/vsource.sym} 200 210 0 0 {name=Vsupp value=1.8 savecurrent=false}
 C {devices/gnd.sym} 200 240 0 0 {name=l6 lab=GND}
 C {db_mixer.sym} 380 380 0 0 {name=x1}
-C {devices/ipin.sym} 40 400 0 0 {name=p1 lab=rfin_n}

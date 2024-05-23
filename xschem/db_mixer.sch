@@ -15,7 +15,12 @@ T {Switching Stage} -160 50 0 0 0.4 0.4 {}
 T {Transconductance Stage} -160 320 0 0 0.4 0.4 {}
 T {Bias Stage} -160 440 0 0 0.4 0.4 {}
 T {Double-Balanced Mixer
-   (Target: 7 MHz)} -760 -380 0 0 0.6 0.6 {}
+      (Target: 7 MHz)} -780 -380 0 0 0.6 0.6 {}
+T {Bruce MacKinnon 23-May-2024} -720 -290 0 0 0.3 0.3 {}
+T {VDD/2 voltage bias for 
+RF diff-amp.  Used to 
+convert single-ended signal
+to differential.} -1700 150 0 0 0.4 0.4 {}
 N -1220 420 -1150 420 {
 lab=BIAS0}
 N -1260 390 -1200 390 {
@@ -99,7 +104,7 @@ lab=VSS}
 N -910 270 -820 270 {
 lab=RF_P}
 N -350 270 -210 270 {
-lab=#net1}
+lab=RF_N}
 N -780 300 -780 340 {
 lab=V1}
 N -780 340 -390 340 {
@@ -128,6 +133,14 @@ N -1310 320 -1310 360 {
 lab=VSS}
 N -1310 320 -1280 320 {
 lab=VSS}
+N -1560 390 -1560 440 {
+lab=RF_N}
+N -1640 360 -1580 360 {
+lab=VSS}
+N -1640 360 -1640 470 {
+lab=VSS}
+N -1640 470 -1580 470 {
+lab=VSS}
 C {sky130_fd_pr/nfet_01v8.sym} -1240 420 0 1 {name=M5
 L=2
 W=20
@@ -144,7 +157,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} -590 420 0 0 {name=M6
 L=2
-W=20
+W=40
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -175,8 +188,8 @@ C {devices/lab_pin.sym} -1280 -50 1 0 {name=p7 sig_type=std_logic lab=LO_N}
 C {devices/lab_pin.sym} -1150 -50 1 0 {name=p8 sig_type=std_logic lab=LO_P}
 C {sky130_stdcells/inv_1.sym} -1220 -50 0 0 {name=x2 VGND=VSS VNB=VSS VPB=VDD VPWR=VDD prefix=sky130_fd_sc_hd__ }
 C {sky130_fd_pr/nfet_01v8.sym} -800 270 0 0 {name=M1
-L=0.15
-W=1
+L=2
+W=10
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -189,8 +202,8 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} -370 270 0 1 {name=M2
-L=0.15
-W=1
+L=2
+W=10
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -283,4 +296,18 @@ C {devices/lab_pin.sym} -640 340 1 0 {name=p21 sig_type=std_logic lab=V1}
 C {devices/lab_pin.sym} -800 190 1 0 {name=p23 sig_type=std_logic lab=V2L}
 C {devices/lab_pin.sym} -420 190 1 0 {name=p24 sig_type=std_logic lab=V2R}
 C {devices/ipin.sym} -900 270 0 0 {name=p18 lab=RF_P}
-C {devices/ipin.sym} -210 270 2 0 {name=p19 lab=RF_N}
+C {sky130_fd_pr/res_high_po_0p35.sym} -1560 360 0 0 {name=R4
+L=10
+model=res_high_po_0p35
+spiceprefix=X
+mult=1}
+C {sky130_fd_pr/res_high_po_0p35.sym} -1560 470 0 0 {name=R5
+L=10
+model=res_high_po_0p35
+spiceprefix=X
+mult=1}
+C {devices/lab_pin.sym} -1560 500 3 0 {name=p25 sig_type=std_logic lab=VSS}
+C {devices/lab_pin.sym} -1560 330 1 0 {name=p26 sig_type=std_logic lab=VDD}
+C {devices/lab_pin.sym} -1560 410 0 0 {name=p19 sig_type=std_logic lab=RF_N}
+C {devices/lab_pin.sym} -210 270 2 0 {name=p27 sig_type=std_logic lab=RF_N}
+C {devices/lab_pin.sym} -1640 410 0 0 {name=p28 sig_type=std_logic lab=VSS}
