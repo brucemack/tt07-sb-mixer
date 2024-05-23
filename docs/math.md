@@ -8,7 +8,8 @@ context of some simple MOSFET realizations of mixer circuits created for the [Ti
 
 An ideal mixer takes RF and local oscillator (LO) signals and produces an intermediate frequency (IF) 
 signal at the sum ($\ \omega_R + \omega_L$) and difference ($\ \omega_R - \omega_L$) frequencies. This 
-is the frequency shifting property that make mixers so useful. A single-balanced mixer is a simple circuit 
+is the frequency shifting property that makes mixers so important in radio circuits. A single-balanced 
+mixer is a simple circuit 
 that exhibits some non-ideal behavior by allowing either the RF or LO 
 signal (depending on configuration) to 
 appear at the output _in addition to_ the desired ($\ \omega_R + \omega_L$) and ($\ \omega_R - \omega_L$) signals. Often 
