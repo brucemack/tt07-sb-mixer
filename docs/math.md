@@ -113,6 +113,8 @@ scaled copy of $\ w(t)$ in the output of the mixer.**  The $\ V_{DD}$ offset goe
 in some sense, the
 LO will be present in $\ y(t)$.  That's not a leak, that's just how the circuit is designed to work.
 
+Since the normal case is $\ B_{LT} = B_{RT}$, we should expect a giant LO influence in the output.
+
 This can be seen by examining a simulated output of the simple mixer circuit.  This was produced using 
 a circuit created using Sky130 technology models and NGSPICE:
 
