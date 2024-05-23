@@ -112,7 +112,7 @@ output IF.  $\ B_{LT} + B_{RT}$ is on the order of 300mV (with some other scalin
 Jumping ahead, the fundamental concept in the design of a double-balanced mixer is to arrange the circuit in such away that 
 the $\ B$ terms cancel each other, at least conceptually. 
 
-## How is the LO Suppressed in the Double-Balanced MOSFET Mixer?
+## How is the LO Suppressed in a Double-Balanced MOSFET Mixer?
 
 This diagram of the standard Gilbert cell double-balanced mixer will be used as the basis
 of the analysis.
@@ -123,7 +123,7 @@ The RF input and the LO input are both differential.  The IF output is also diff
 and is taken as the difference of the two tail voltages: $\ l(t) - r(t)$.
 
 Because of the clever cross-connects in this circuit, each tail experiences current contribution 
-from the positive and negative ends of the RF signal $\ x(t)$ at the same time. Similarly, each 
+from the positive $\ x(t)/2$ and negative ends of the RF signal $\ -x(t)/2$ at the same time. Similarly, each 
 tail experiences part of the bias currents $\ B_{RT}$ and $\ B_{LT}$.
 
 As before, let the RF signal be represented by a cosine function:
@@ -131,7 +131,7 @@ As before, let the RF signal be represented by a cosine function:
 $$\ x(t) = Acos(\omega_Rt) $$
 
 We write the expression for the output voltage in the left and right tails of the circuit.  Again, we leverage the 
-un-delayed phase of the square wave $\ w(t)$ and the delayed phase $\ w(t + \pi/\omega_L)$ to achieve the desired
+un-delayed phase $\ w(t)$ and the half-cycle delayed phase $\ w(t + \pi/\omega_L)$ of the square wave to achieve the desired
 switching between the left and right tails of the circuit:
 
 $$\ l(t) = V_{DD} - R \cdot \left( w(t){g_mAcos(\omega_Rt) \over 2} + w(t)B_{LT} + w(t+\pi/\omega_L){-g_mAcos(\omega_Rt) \over 2} + w(t+\pi/\omega_L)B_{RT} \right) $$
@@ -144,19 +144,48 @@ $$\ w(t) = -w(t + \pi/\omega_L) $$
 
 And taking the difference of the two tail output voltages we end up with:
 
-$$\ y(t) = R \cdot ( 4w(t){g_mAcos(\omega_Rt) \over 2} + 2w(t)(B_{LT} - B_{RT}) ) $$
+$$\ y(t) = R \cdot \left( 4w(t){g_mAcos(\omega_Rt) \over 2} + 2w(t)(B_{LT} - B_{RT}) \right) $$
 
 And this leads to the important result.  Unlike the the single-balanced case where $\ B_{LT}$ and $\ B_{RT}$ are added, 
 in the double-balanced case they are subtracted.  So when $\ B_{LT} = B_{RT}$ the right-hand term that involves the 
 raw LO signal $\ w(t)$ drops out entirely.  That is the mathematical definition of LO suppression.
 
 This highlights the criticality of symmetry in this circuit. Any mismatch between $\ B_{LT}$ and $\ B_{RT}$ will allow 
-some component of the LO signal to leak into the mixer output.
+some component of the LO signal to leak into the mixer output. In this situation is's legit to use the term "leak." :-)
 
+## Can a Double-Balanced Structure Be Driven By a Single-Ended RF Signal?
 
+The one advantage of the single-balanced circuit is that the RF input is single-ended.  Or at least, that is 
+one advantage in a world where analog IO pins cost $40 each! This raises a question about whether the 
+double-balanced design can be driven using a singled-ended RF signal.  
 
+A common technique used to apply 
+a single-ended signal to a differential amplifier is to tie one of the two inputs of the diff-amp to a fixed DC bias. This
+section attempts to validate whether this approach will still work.  
 
+The diagram below illustrates the proposed arrangement:
 
+![Gilbert Cell](IMG_0957.jpg)
+
+In the previous section we used differential inputs of $\ x(t) / 2$ and $\ -x(t) / 2$ on the RF input of the mixer.  It is important 
+to note that the $\ x(t)$ signal should be interpreted as an AC component of the RF input that is independent of the DC bias
+represented by the $\ B_{LT}$ and $\ B_{RT}$ terms introduced previously.
+
+If we tie the right-hand RF input to a fixed DC voltage $\ C_1$ and write the tail output expressions:
+
+$$\ l(t) = V_{DD} - R \cdot \left( w(t){g_mAcos(\omega_Rt) \over 2} + w(t)B_{LT} + w(t+\pi/\omega_L)C_1 + w(t+\pi/\omega_L)B_{RT} \right) $$
+
+$$\ r(t) = V_{DD} - R \cdot \left( w(t+\pi/\omega_L){g_mAcos(\omega_Rt) \over 2} + w(t+\pi/\omega_L)B_{LT} + w(t)C_1 + w(t)B_{RT} \right) $$
+
+Taking the difference of the two tail output voltages we end up with:
+
+$$\ y(t) = R \cdot \left( 2w(t){g_mAcos(\omega_Rt) \over 2} + 2w(t)(B_{LT} - B_{RT} - C_1) \right) $$
+
+There are two important take-aways here:
+
+* By setting $\ B_{LT} = B_{RT}$ and $\ C_1 $ = 0 we will eliminate the LO component on the output, as desired.
+* The factor of 4 in the original $\ 4w(t){g_mAcos(\omega_Rt) \over 2}$ term is reduced to 2, so the output amplitude of the IF 
+signal is cut in half.
 
 
 
