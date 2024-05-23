@@ -153,10 +153,10 @@ raw LO signal $\ w(t)$ drops out entirely.  That is the mathematical definition 
 This highlights the criticality of symmetry in this circuit. Any mismatch between $\ B_{LT}$ and $\ B_{RT}$ will allow 
 some component of the LO signal to leak into the mixer output. In this situation is's legit to use the term "leak." :-)
 
-## Can a Double-Balanced Structure Be Driven By a Single-Ended RF Signal?
+## Can a Double-Balanced Mixer Be Driven By a Single-Ended RF Signal?
 
 The one advantage of the single-balanced circuit is that the RF input is single-ended.  Or at least, that is 
-one advantage in a world where analog IO pins cost $40 each! This raises a question about whether the 
+one big advantage in a world where analog IO pins cost $40 each! This raises a question about whether the 
 double-balanced design can be driven using a singled-ended RF signal.  
 
 A common technique used to apply 
