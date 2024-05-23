@@ -157,7 +157,7 @@ some component of the LO signal to leak into the mixer output. In this situation
 
 The one advantage of the single-balanced circuit is that the RF input is single-ended.  Or at least, that is 
 one big advantage in a world where analog IO pins cost $40 each! This raises a question about whether the 
-double-balanced design can be driven using a singled-ended RF signal.  
+double-balanced design can be driven using a singled-ended RF signal.  Will this disrupt the balance?
 
 A common technique used to apply 
 a single-ended signal to a differential amplifier is to tie one of the two inputs of the diff-amp to a fixed DC bias. This
@@ -183,9 +183,12 @@ $$\ y(t) = R \cdot \left( 2w(t){g_mAcos(\omega_Rt) \over 2} + 2w(t)(B_{LT} - B_{
 
 There are two important take-aways here:
 
-* By setting $\ B_{LT} = B_{RT}$ and $\ C_1 $ = 0 we will eliminate the LO component on the output, as desired.
+* By setting $\ B_{LT} = B_{RT}$ and $\ C_1 $ = 0 we will eliminate the LO component on the output, as desired.  *IMPORTANT NOTE:* 
+Setting $\ C_1 $ = 0 doesn't mean tying that input to ground. It just means ensuring that the AC component of the right side
+of the RF input is at *AC ground* potential, considering the existing biasing requirements.
 * The factor of 4 in the original $\ 4w(t){g_mAcos(\omega_Rt) \over 2}$ term is reduced to 2, so the output amplitude of the IF 
-signal is cut in half.
+signal is cut in half, as expected.
+
 
 
 
