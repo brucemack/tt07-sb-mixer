@@ -160,7 +160,7 @@ in the double-balanced case they are subtracted.  So when $\ B_{LT} = B_{RT}$ th
 raw LO signal $\ w(t)$ drops out entirely.  That is the mathematical definition of LO suppression.
 
 This highlights the criticality of symmetry in this circuit. Any mismatch between $\ B_{LT}$ and $\ B_{RT}$ will allow 
-some component of the LO signal to leak into the mixer output. In this situation is's legit to use the term "leak"!
+some component of the LO signal to leak into the mixer output. In this situation it's legit to use the term "leak."
 
 ## Can a Double-Balanced Mixer Be Driven By a Single-Ended RF Signal?
 
