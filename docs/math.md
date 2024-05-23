@@ -187,7 +187,7 @@ There are two important take-aways here:
 Setting $\ C_1$ = 0 doesn't mean that we tie that input to ground. It does means that we must ensure that the AC component of the right side
 of the RF input is at *AC ground* potential, considering the existing biasing requirements.
 * The factor of 4 in the original $\ 4w(t){g_mAcos(\omega_Rt) \over 2}$ term is reduced to 2, so the output amplitude of the IF 
-signal is cut in half, as expected.
+signal is cut in half (with no corresponding reduction in noise power), as expected.
 
 
 
