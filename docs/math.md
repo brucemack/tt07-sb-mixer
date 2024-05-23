@@ -7,15 +7,17 @@ context of some simple MOSFET realizations of mixer circuits created for the [Ti
 ## Why Does the LO "Leak" Through a Single-Balanced MOSFET Mixer?
 
 An ideal mixer takes RF and local oscillator (LO) signals and produces an intermediate frequency (IF) 
-signal at the sum ($\ \omega_R + \omega_L$) and difference ($\ \omega_R - \omega_L$) frequencies. 
-A single-balanced mixer is a simple circuit that exhibits non-ideal behavior by allowing either the RF or LO 
+signal at the sum ($\ \omega_R + \omega_L$) and difference ($\ \omega_R - \omega_L$) frequencies. This 
+is the frequency shifting property that make mixers so useful. A single-balanced mixer is a simple circuit 
+that exhibits some non-ideal behavior by allowing either the RF or LO 
 signal (depending on configuration) to 
 appear at the output _in addition to_ the desired ($\ \omega_R + \omega_L$) and ($\ \omega_R - \omega_L$) signals. Often 
 times this undesired mixer output is referred to as "leakage."
 
 In the case of the single-balanced mixer, I don't think it's accurate to call this undesired output 
 "leakage" because _the circuit was never designed to suppress the extra output in the first place._ But we'll stick with this
-term for now. Whatever we call it, it is important to understand the mathematical reason for this undesired mixer output.
+term for now. Whatever we call it, it is important to understand the mathematical reason for this undesired,
+but fully expected mixer output.
 
 For this analysis we will use the following diagram of a simple single-balanced MOSFET mixer:
 
@@ -151,7 +153,7 @@ in the double-balanced case they are subtracted.  So when $\ B_{LT} = B_{RT}$ th
 raw LO signal $\ w(t)$ drops out entirely.  That is the mathematical definition of LO suppression.
 
 This highlights the criticality of symmetry in this circuit. Any mismatch between $\ B_{LT}$ and $\ B_{RT}$ will allow 
-some component of the LO signal to leak into the mixer output. In this situation is's legit to use the term "leak." :-)
+some component of the LO signal to leak into the mixer output. In this situation is's legit to use the term "leak"!
 
 ## Can a Double-Balanced Mixer Be Driven By a Single-Ended RF Signal?
 
