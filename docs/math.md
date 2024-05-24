@@ -155,7 +155,7 @@ Or simply:
 
 $$\ w(t) = {4 \over \pi} sin(\omega_Lt) + w_{harmonics}(t) $$
 
-So $\ y_p(t)$ can look like this (now ignoring all of the constants):
+So $\ y_p(t)$ can look something like this (now ignoring all of the constants):
 
 $$\ y_p(t) = \left( sin(\omega_Lt) + w_{harmonics}(t) \right) cos(\omega_Rt) $$
 
@@ -176,7 +176,7 @@ Which is exactly the two shifted frequency components that we expected.
 It is very important to note that the shifting is also happening on the right-hand side of the expression **using all 
 of the harmonics** of $\ \omega_L$. So, for example, there is energy in the mixer output at $\ 3\omega_L + \omega_R$. Those
 higher-order mixing products may be useful or spurious, depending on the application.  Any that are spurious would 
-need to be filtered to avoid a visit from the FCC.
+need to be filtered to avoid a visit from the FCC or the equivalent local authorities.
 
 ## How is the LO Suppressed in a Double-Balanced MOSFET Mixer?
 
