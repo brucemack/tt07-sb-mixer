@@ -71,7 +71,7 @@ A full representation of the differential IF output of the single-balanced MOSFE
 $$\ y(t) = l(t) - r(t)$$
 
 The mixing action applies the LO to each tail in alternating opposite phase, so a time shift of $\ (2 \pi / \omega_L) / 2$ seconds needs to 
-be applied to the LO input on one tail of the mixer.
+be applied to the square wave on one tail of the mixer to accurately model the LO impact.
 
 $$\ l(t) = V_{DD} - R \cdot w(t) ( B_{LT} + g_mx(t) )$$
 
