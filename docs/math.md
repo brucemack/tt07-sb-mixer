@@ -7,6 +7,8 @@ unwanted mixer products, but I've never known why. This is an attempt to show th
 context of some simple MOSFET realizations of mixer circuits created for my [Tiny Tapeout](https://tinytapeout.com/) 
 project.
 
+Mr. Gilbert figured all of this out in 1969 so there is no new ground being broken here.
+
 ## Why Does the LO "Leak" Through a Single-Balanced MOSFET Mixer?
 
 An ideal mixer takes RF and local oscillator (LO) signals and produces an intermediate frequency (IF) 
@@ -60,7 +62,8 @@ we would expect $\ B_{LT}$ = $\ B_{RT}$ since the circuit is symmetric.
 The on/off switching action of the mixer can be thought of as a multiplication of the RF signal by the LO square wave 
 that alternates between 1 and 0.  When the LO 
 has the value of 1 the tail is switched on and the RF signal current is allowed to pass.  When the LO has the value of 0 the tail 
-is switched off and the RF signal is suppressed.
+is switched off and the RF signal is suppressed. You can also think of the binary on/off LO as a sampling mechanism, allowing a small
+window of the incoming RF to be seen on each tail of the circuit in alternating fashion.
 
 A full representation of the differential IF output of the single-balanced MOSFET mixer is constructed as follows:
 
@@ -109,7 +112,7 @@ $$\ y(t) = R \cdot \left( w(t) (B_{LT} + g_mAcos(\omega_Rt)) + w(t) (B_{RT} + g_
 $$\ y(t) = R \cdot \left( w(t) (B_{LT} + B_{RT}) + 2 w(t) g_mAcos(\omega_Rt) \right) $$
 
 This is the most important part of the analysis. Notice that for any $\ B_{LT}$ and $\ B_{RT}$ where $\ B_{LT} \neq -B_{RT}$ **we end up with a 
-scaled copy of $\ w(t)$ in the output of the mixer.**  The $\ V_{DD}$ offset goes away, but unless $\ B_{LT}$ and $\ B_{RT}$ are offsetting
+scaled copy of $\ w(t)$ in the output of the mixer** because of the $\ w(t) (B_{LT} + B_{RT})$ term.  The $\ V_{DD}$ offset goes away, but unless $\ B_{LT}$ and $\ B_{RT}$ are offsetting
 in some sense, the
 LO will be present in $\ y(t)$.  That's not a leak, that's just how the circuit is designed to work.
 
@@ -125,6 +128,55 @@ output IF.  $\ B_{LT} + B_{RT}$ is on the order of 300mV (with some other scalin
 
 Jumping ahead, the fundamental concept in the design of a double-balanced mixer is to arrange the circuit in such away that 
 the $\ B$ terms cancel each other, at least conceptually. 
+
+## Where Does the Frequency Shifting Coming Into the Picture?
+
+The previous section focused on the $\ w(t) (B_{LT} + B_{RT})$ term of the mixer output:
+
+$$\ y(t) = R \cdot \left( w(t) (B_{LT} + B_{RT}) + 2 w(t) g_mAcos(\omega_Rt) \right) $$
+
+But the more important part of the mixer is the $\ 2 w(t) g_mAcos(\omega_Rt)$ term because that's where the 
+action is. Clearly we have a multiplication going on between the LO $\ w(t)$ and the RF $\ g_mAcos(\omega_Rt)$,
+but where is the frequency shift?
+
+Let's just focus on the last part of the mixer output expression:
+
+$$\ y_p(t) = R \cdot 2 w(t) g_mAcos(\omega_Rt) $$
+
+Remember that we can represent the square LO signal as an infinite sum of odd harmonics:
+
+$$\ w(t) = {4 \over \pi} \sum_{n=1,3,5,...}^\infty {1 \over n} sin(n\omega_Lt) $$
+
+Pulling out the first part of the sum we get:
+
+$$\ w(t) = {4 \over \pi} sin(\omega_Lt) + {4 \over \pi} \sum_{n=3,5,...}^\infty {1 \over n} sin(n\omega_Lt) $$
+
+Or simply:
+
+$$\ w(t) = {4 \over \pi} sin(\omega_Lt) + w_{harmonics}(t) $$
+
+So $\ y_p(t)$ can look like this (now ignoring all of the constants):
+
+$$\ y_p(t) = \left( sin(\omega_Lt) + w_{harmonics}(t) \right) cos(\omega_Rt) $$
+
+Or:
+
+$$\ y_p(t) =  sin(\omega_Lt) cos(\omega_Rt) + w_{harmonics}(t) cos(\omega_Rt)  $$
+
+The shift comes from this property of trigonometry that is much loved by radio engineers:
+
+$$\ sin(\omega_Lt)cos(\omega_Rt) = {1 \over 2} ( sin(\omega_Lt + \omega_Rt) + sin(\omega_Lt - \omega_Rt)) $$
+
+So:
+
+$$\ y_p(t) =  {1 \over 2} ( sin(\omega_Lt + \omega_Rt) + sin(\omega_Lt - \omega_Rt)) + w_{harmonics}(t) cos(\omega_Rt)  $$
+
+Which is exactly the two shifted frequency components that we expected.
+
+It is very important to note that the shifting is also happening on the right-hand side of the expression **using all 
+of the harmonics** of $\ \omega_L$. So, for example, there is energy in the mixer output at $\ 3\omega_L + \omega_R$. Those
+higher-order mixing products may be useful or spurious, depending on the application.  Any that are spurious would 
+need to be filtered to avoid a visit from the FCC.
 
 ## How is the LO Suppressed in a Double-Balanced MOSFET Mixer?
 
