@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1716555774
+timestamp 1716556492
 << metal1 >>
 rect 0 0 200 200
 rect 0 -400 200 -200
@@ -9,6 +9,14 @@ rect 0 -800 200 -600
 rect 0 -1200 200 -1000
 rect 0 -1600 200 -1400
 rect 0 -2000 200 -1800
+use sky130_fd_sc_hd__tapvpwrvgnd_1  sky130_fd_sc_hd__tapvpwrvgnd_1_0
+timestamp 1704896540
+transform 1 0 7314 0 1 -352
+box -38 -48 130 592
+use sky130_fd_sc_hd__tapvpwrvgnd_1  sky130_fd_sc_hd__tapvpwrvgnd_1_1
+timestamp 1704896540
+transform 1 0 7314 0 1 -1552
+box -38 -48 130 592
 use sky130_fd_sc_hd__inv_1  x1 ~/pdk/sky130A/libs.ref/sky130_fd_sc_hd/mag
 timestamp 1704896540
 transform 1 0 7482 0 1 -352
