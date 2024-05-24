@@ -1,0 +1,85 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1716555774
+<< metal1 >>
+rect 0 0 200 200
+rect 0 -400 200 -200
+rect 0 -800 200 -600
+rect 0 -1200 200 -1000
+rect 0 -1600 200 -1400
+rect 0 -2000 200 -1800
+use sky130_fd_sc_hd__inv_1  x1 ~/pdk/sky130A/libs.ref/sky130_fd_sc_hd/mag
+timestamp 1704896540
+transform 1 0 7482 0 1 -352
+box -38 -48 314 592
+use sky130_fd_sc_hd__inv_1  x2
+timestamp 1704896540
+transform 1 0 7482 0 1 -1552
+box -38 -48 314 592
+use sky130_fd_pr__nfet_01v8_NXKS9S  XM1
+timestamp 1716495612
+transform 0 1 4910 -1 0 -404
+box -396 -1210 396 1210
+use sky130_fd_pr__nfet_01v8_NXKS9S  XM2
+timestamp 1716495612
+transform 0 1 10330 -1 0 -404
+box -396 -1210 396 1210
+use sky130_fd_pr__nfet_01v8_NXKS9S  XM3
+timestamp 1716495612
+transform 1 0 4932 0 1 2650
+box -396 -1210 396 1210
+use sky130_fd_pr__nfet_01v8_NXKS9S  XM4
+timestamp 1716495612
+transform 1 0 6724 0 1 2650
+box -396 -1210 396 1210
+use sky130_fd_pr__nfet_01v8_WWWVRA  XM5
+timestamp 1716495612
+transform 0 1 2756 -1 0 -3363
+box -1083 -710 1083 710
+use sky130_fd_pr__nfet_01v8_X7BG72  XM6
+timestamp 1716495612
+transform 0 1 7620 -1 0 -3717
+box -1083 -1210 1083 1210
+use sky130_fd_pr__nfet_01v8_NXKS9S  XM7
+timestamp 1716495612
+transform 1 0 8516 0 1 2650
+box -396 -1210 396 1210
+use sky130_fd_pr__nfet_01v8_NXKS9S  XM8
+timestamp 1716495612
+transform 1 0 10484 0 1 2666
+box -396 -1210 396 1210
+use sky130_fd_pr__res_high_po_0p69_ZKG2N9  XR1
+timestamp 1716495612
+transform 1 0 5819 0 1 5451
+box -235 -651 235 651
+use sky130_fd_pr__res_high_po_0p69_ZKG2N9  XR2
+timestamp 1716495612
+transform 1 0 9655 0 1 5451
+box -235 -651 235 651
+use sky130_fd_pr__res_high_po_0p35_QPS5FG  XR3
+timestamp 1716495612
+transform 1 0 2761 0 1 1056
+box -201 -2582 201 2582
+use sky130_fd_pr__res_high_po_0p35_FFK5MY  XR4
+timestamp 1716495612
+transform 1 0 12217 0 1 2296
+box -201 -1582 201 1582
+use sky130_fd_pr__res_high_po_0p35_FFK5MY  XR5
+timestamp 1716495612
+transform 1 0 12217 0 1 -2854
+box -201 -1582 201 1582
+<< labels >>
+flabel metal1 0 0 200 200 0 FreeSans 256 0 0 0 VDD
+port 0 nsew
+flabel metal1 0 -400 200 -200 0 FreeSans 256 0 0 0 VSS
+port 1 nsew
+flabel metal1 0 -800 200 -600 0 FreeSans 256 0 0 0 LOIN
+port 2 nsew
+flabel metal1 0 -1200 200 -1000 0 FreeSans 256 0 0 0 IFOUT_N
+port 3 nsew
+flabel metal1 0 -1600 200 -1400 0 FreeSans 256 0 0 0 IFOUT_P
+port 4 nsew
+flabel metal1 0 -2000 200 -1800 0 FreeSans 256 0 0 0 RF_P
+port 5 nsew
+<< end >>
