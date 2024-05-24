@@ -1,11 +1,12 @@
-# Mixer Math
+# MOSFET Mixer Math
 
 (Bruce MacKinnon, 22-May-2024)
 
 I've always known that double-balanced mixers are supposed to be better than single-balanced mixers at suppressing
 unwanted mixer products, but I've never known why. This is an attempt to show the math in the 
 context of some simple MOSFET realizations of mixer circuits created for my [Tiny Tapeout](https://tinytapeout.com/) 
-project.
+project. Actually, all of the math here applies to any kind of switching mixer - there is nothing 
+special about MOSFETs.
 
 Mr. Gilbert figured all of this out in 1969 so there is no new ground being broken here.
 
