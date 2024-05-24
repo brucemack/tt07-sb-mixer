@@ -129,7 +129,7 @@ output IF.  $\ B_{LT} + B_{RT}$ is on the order of 300mV (with some other scalin
 Jumping ahead, the fundamental concept in the design of a double-balanced mixer is to arrange the circuit in such away that 
 the $\ B$ terms cancel each other, at least conceptually. 
 
-## Where Does the Frequency Shifting Coming Into the Picture?
+## Where Does the Frequency Shifting Come Into the Picture?
 
 The previous section focused on the $\ w(t) (B_{LT} + B_{RT})$ term of the mixer output:
 
