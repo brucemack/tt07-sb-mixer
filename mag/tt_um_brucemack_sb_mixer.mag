@@ -1,7 +1,12 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1716647504
+timestamp 1716650609
+<< error_s >>
+rect 26230 7668 26300 7748
+rect 26200 7662 26300 7668
+rect 26048 7616 26300 7662
+rect 26048 7606 26248 7616
 << metal1 >>
 rect 20530 8948 20536 9148
 rect 20736 8948 20982 9148
@@ -234,7 +239,7 @@ rect 31254 6 31462 200
 rect 31282 0 31462 6
 rect 26842 -54 27042 0
 use db_mixer  db_mixer_0
-timestamp 1716600219
+timestamp 1716650609
 transform 0 -1 26026 1 0 710
 box 720 -5014 12418 6460
 << labels >>

@@ -141,6 +141,8 @@ N -1640 360 -1640 470 {
 lab=VSS}
 N -1640 470 -1580 470 {
 lab=VSS}
+N -1420 50 -1390 50 {}
+N -1420 -50 -1420 50 {}
 C {sky130_fd_pr/nfet_01v8.sym} -1240 420 0 1 {name=M5
 L=2
 W=20
@@ -311,3 +313,4 @@ C {devices/lab_pin.sym} -1560 330 1 0 {name=p26 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} -1560 410 0 0 {name=p19 sig_type=std_logic lab=RF_N}
 C {devices/lab_pin.sym} -210 270 2 0 {name=p27 sig_type=std_logic lab=RF_N}
 C {devices/lab_pin.sym} -1640 410 0 0 {name=p28 sig_type=std_logic lab=VSS}
+C {sky130_stdcells/diode_2.sym} -1300 50 0 0 {name=x3 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
