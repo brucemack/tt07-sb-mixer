@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project:
-  title:        "Single Balanced Mixer"      # Project title
+  title:        "Double Balanced Mixer"      # Project title
   author:       "Bruce MacKinnon"      # Your name
   discord:      "BruceMacK"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "Takes an RF input (with DC bias) and a digital LO signal and mixes to provide a differential IF output.  Simulated at 7 MHz."      # One line description of what your project does
@@ -23,7 +23,7 @@ project:
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: "Local Oscilator input"
+  ui[0]: "Local Oscillator input"
   ui[1]: ""
   ui[2]: ""
   ui[3]: ""
