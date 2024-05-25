@@ -19,13 +19,13 @@ module tt_um_brucemack_sb_mixer (
     input  wire       rst_n     // reset_n - low to reset
 );
 
-  sb_mixer sb_mixer (
+  db_mixer db_mixer (
     .IFOUT_P(ua[1]),
     .IFOUT_N(ua[2]),
-    .RFIN(ua[0]),
+    .RF_P(ua[0]),
     .VDD(VPWR),
     .VSS(VGND),
-    .LOIN(ui_in[0])
+    .LOIN(uio_in[0])
   );
 
    // Pins tied low to avoid floats
