@@ -25,7 +25,7 @@ module tt_um_brucemack_sb_mixer (
     .RF_P(ua[0]),
     .VDD(VPWR),
     .VSS(VGND),
-    .LOIN(ui_in[0])
+    .LOIN(uio_in[0])
   );
 
    // Pins tied low to avoid floats
