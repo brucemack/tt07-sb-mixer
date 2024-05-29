@@ -126,4 +126,8 @@ wrdata out.txt v(ifout_p_2)-v(ifout_n_2)
 "}
 C {devices/vsource.sym} 200 210 0 0 {name=Vsupp value=1.8 savecurrent=false}
 C {devices/gnd.sym} 200 240 0 0 {name=l6 lab=GND}
-C {db_mixer.sym} 380 380 0 0 {name=x1}
+C {db_mixer.sym} 380 380 0 0 {name=x1
+schematic=db_mixer_parax.sim
+spice_sym_def="tcleval(.include [file normalize ../mag/db_mixer.sim.spice])"
+tclcommand="textwindow [file normalize ../mag/db_mixer.sim.spice]"
+}
