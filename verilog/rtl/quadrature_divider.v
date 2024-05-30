@@ -5,7 +5,7 @@
 // Takes the clock, divides by 4, and provides outputs a two phases: 0
 // degrees and 90 degrees.
 //
-'default_nettype none
+`default_nettype none
 module quadrature_divider(
   input  wire clk,
   input  wire n_rst,
