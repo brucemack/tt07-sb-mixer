@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project:
-  title:        "Double Balanced Mixer"      # Project title
+  title:        "Double Balanced Mixer and Quadrature Divider"      # Project title
   author:       "Bruce MacKinnon"      # Your name
   discord:      "BruceMacK"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "Takes an RF input (with DC bias) and a digital LO signal and mixes to provide a differential IF output.  Simulated at 7 MHz."      # One line description of what your project does
@@ -23,8 +23,8 @@ project:
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: "Local Oscillator input"
-  ui[1]: ""
+  ui[0]: "Local Oscillator input for mixer"
+  ui[1]: "Clock input for quadrature divider"
   ui[2]: ""
   ui[3]: ""
   ui[4]: ""
@@ -33,8 +33,8 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
+  uo[0]: "I phase output from quadrature divider"
+  uo[1]: "Q phase output from quadrature divider"
   uo[2]: ""
   uo[3]: ""
   uo[4]: ""
@@ -54,8 +54,8 @@ pinout:
 
   # Analog pins - make sure to also set "analog_pins" above, else the pins won't be connected
   ua[0]: "RF input (with DC bias)"
-  ua[1]: "IF output (Positive)"
-  ua[2]: "IF output (Negative)"
+  ua[1]: "IF output (Positive phase)"
+  ua[2]: "IF output (Negative phase)"
   ua[3]: ""
   ua[4]: ""
   ua[5]: ""
