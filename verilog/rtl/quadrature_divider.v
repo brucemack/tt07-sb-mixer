@@ -10,7 +10,7 @@ module quadrature_divider(
   input  wire clk,
   input  wire n_rst,
   output wire out_i,
-  output wire out_q,
+  output wire out_q
   );
    
     wire out_0;
