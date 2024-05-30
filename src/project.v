@@ -19,6 +19,7 @@ module tt_um_brucemack_sb_mixer (
     input  wire       rst_n     // reset_n - low to reset
 );
 
+  // Analog component
   db_mixer db_mixer (
     .IFOUT_P(ua[1]),
     .IFOUT_N(ua[2]),
@@ -28,9 +29,17 @@ module tt_um_brucemack_sb_mixer (
     .LOIN(uio_in[0])
   );
 
-   // Pins tied low to avoid floats
-   assign uo_out[0] = VGND;
-   assign uo_out[1] = VGND;
+  // Digital component
+  quadrature_divider quadrature_divider(
+     .clk(uio_in[1]),
+     .n_rst(rst_n),
+     .out_i(uo_out[0]),
+     .out_q(uo_out[1]),
+     .VPWR(VPWR),
+     .VGND(VGND)		     
+   ); 
+   
+   // Unused output pins tied low to avoid floats
    assign uo_out[2] = VGND;
    assign uo_out[3] = VGND;
    assign uo_out[4] = VGND;
