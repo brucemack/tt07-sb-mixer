@@ -3,15 +3,16 @@
 # Analog/Digital ASIC Project for Tiny Tapeout
 
 This is a mixed analog/digital ASIC design created for Tiny Tapeout 7. This is my first time through the ASIC design process and things are very experimental.
-My ASIC design contains a double balanced mixer (Gilbert Cell) and a quadrature 
-clock generation circuit, all implemented using MOSFET technology.
+My design contains a double balanced mixer (Gilbert Cell) and a quadrature 
+clock generation, all implemented using MOSFET devices provided by 
+the [SkyWater 130 Open PDK](https://skywater-pdk.readthedocs.io/en/main/).
 
 The more detailed documentation of the project [is located here](docs/info.md).
 
 My analysis of some of the math behind balanced mixer operation can be found [here](docs/math.md).
 
 My plan is to construct a complete receiver in future iterations of the design.
-From what I have learned about the Skywater 130 ASIC technology so far this 
+From what I have learned about the Sky130 technology so far this 
 seems feasible.
 
 My contact is bruce at mackinnon dot com. For any amateur radio operators looking 
