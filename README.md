@@ -47,7 +47,8 @@ various values.
 
 "Wiring" between devices is achieved by defining metal interconnect structures 
 at different (higher) layers in the manufacturing process. Metal layers can 
-cross each other as long as they are at different levels - this is very 
+cross each other as long as they are at different levels.  Via layers can 
+be used to move up and down through the metal stack. This part is very 
 similar to PCB routing.
 
 In general, this technology doesn't support inductors (with some exceptions) 
