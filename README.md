@@ -25,7 +25,17 @@ at this project, I am KC1FSZ.
 
 ![Layout](docs/cap3.jpg)
 
-Yes, there is a lot of space available for a more complicated design.
+This is a rendering that was created from the actual GDS2 files that will be sent 
+to the chip fab.  
+
+The mixer is in the foreground on the bottom of the tile and the quadrature divider is 
+in the background towards the top. The mixer is oriented roughly 90 counter-clockwise
+from the schematic diagram above. The long dark blue metal traces on the left side 
+are the power/ground rails.
+
+The entire area is rougly 170 microns wide and 230 micros tall.
+
+Yes, there is plenty of space available for a more complicated design!
 
 ## What is Tiny Tapeout?
 
