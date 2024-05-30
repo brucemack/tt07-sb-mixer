@@ -5,7 +5,7 @@
 This is a mixed analog/digital ASIC design created for Tiny Tapeout 7. This is my first time through the ASIC design process and things are very experimental.
 My design contains a double balanced mixer (Gilbert Cell) and a quadrature 
 clock generation, all implemented using MOSFET devices provided by 
-the [SkyWater 130 Open PDK](https://skywater-pdk.readthedocs.io/en/main/).
+the [SkyWater 130nm Open PDK](https://skywater-pdk.readthedocs.io/en/main/).
 
 The more detailed documentation of the project [is located here](docs/info.md).
 
@@ -22,7 +22,7 @@ at this project, I am KC1FSZ.
 
 ![Mixer](docs/cap2.jpg)
 
-## What the Device Layout Looks Like
+## What the VLSI Layout Looks Like
 
 ![Layout](docs/cap3.jpg)
 
@@ -54,8 +54,8 @@ collection of tools for logic synthesis, place/route, timing analysis, etc.  Ver
 
 ### Books
 
-None of these books are particularly new. I am working from early 
-editions of all - easily found at the various used book sellers.
+None of these text books are particularly new. I am working from early 
+editions of all of them - easily found at the various used book sellers.
 
 * Microelectronic Circuits (Adel Sedra and Kenneth Smith)
 * CMOS Circuit Design, Layout, and Simulation (R. Jacob Baker)
