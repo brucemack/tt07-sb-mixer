@@ -41,14 +41,13 @@ most common things to manipulate are:
 * The aspect ratio of the various diffusion areas used to create NFET/PFET transistors.
 To a first approximation, the transconductance of a MOSFET is a function 
 of the ratio of the width/length of the gate.
-* The relative length/width of polysilicon layers to create resistors of 
-various values. Longer/thinner = more resistive.
+* The relative length/width of polysilicon layers to create resistors. Longer/thinner = more resistive.
 * The areas/gaps used to create capacitors. Bigger = more capacitive.
 
 "Wiring" between devices is achieved by defining metal interconnect structures 
 at different (higher) layers in the manufacturing process. Metal layers can 
 cross each other as long as they are at different levels.  Via layers can 
-be used to move up and down through the metal stack. This part is very 
+be used to make connections up and down through the metal stack. This part is very 
 similar to PCB routing.
 
 In general, this technology doesn't support inductors (with some exceptions) 
@@ -60,7 +59,8 @@ please check out [this amazing presentation by Dr. Harald Pretl](https://www.mos
 all of the creative things that can be done with _only two_ MOSFETs.
 
 And two other unavoidable things that make this different from discrete electronics:
-* Like it or not, everything is resistive and capacitive. Design simulation is 
+* Like it or not, everything is resistive and capacitive in a way
+that probably matters. Design simulation is 
 used *AFTER* the 
 layout is created to determine how the circuit's behavior is impacted by the 
 inherent "parasitic features" of the devices/wires.
