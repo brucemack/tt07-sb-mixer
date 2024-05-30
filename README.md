@@ -42,8 +42,8 @@ most common things to manipulate are:
 To a first approximation, the transconductance of a MOSFET is a function 
 of the ratio of the width/length of the gate.
 * The relative length/width of polysilicon layers to create resistors of 
-various values.
-* The areas/gaps used to create capacitors.
+various values. Longer/thinner = more resistive.
+* The areas/gaps used to create capacitors. Bigger = more capacitive.
 
 "Wiring" between devices is achieved by defining metal interconnect structures 
 at different (higher) layers in the manufacturing process. Metal layers can 
@@ -58,6 +58,15 @@ You'd be surprised how many creative ways people have come up with to
 employ MOSFETs as a work-around for the lack of LRCs. If you don't believe it, 
 please check out [this amazing presentation by Dr. Harald Pretl](https://www.mos-ak.org/spring_2022/presentations/Pretl_Spring_MOS-AK_2022.pdf) who shows 
 all of the creative things that can be done with _only two_ MOSFETs.
+
+And two other unavoidable things that make this different from discrete electronics:
+* Like it or not, everything is resistive and capacitive. Design simulation is 
+used *AFTER* the 
+layout is created to determine how the circuit's behavior is impacted by the 
+inherent "parasitic features" of the devices/wires.
+* Tolerances are extremely loose given the inevitable variations of the manufacturing 
+process, temperature, etc. You can't count on absolute accuracy of any components, so almost all 
+designs rely on differential techniques of one kind of another.
 
 The entire area shown in the picture above roughly 170 microns wide and 230 micros tall.
 
