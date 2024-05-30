@@ -1,8 +1,8 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg)
 
-# Tiny Tapeout Analog Project
+# Analog/Digital ASIC Project for Tiny Tapeout
 
-This is an analog/digital mixed signal design created for Tiny Tapeout 7. This is my first time through the ASIC design process and things are very experimental.
+This is a mixed analog/digital design created for Tiny Tapeout 7. This is my first time through the ASIC design process and things are very experimental.
 My ASIC tile contains a double balanced mixer (Gilbert Cell) and a quadrature 
 clock generation circuit.
 
@@ -33,7 +33,7 @@ in the background towards the top. The mixer is oriented roughly 90 counter-cloc
 from the schematic diagram above. The long dark blue metal traces on the left side 
 are the power/ground rails.
 
-The entire area is rougly 170 microns wide and 230 micros tall.
+The entire area is roughly 170 microns wide and 230 micros tall.
 
 Yes, there is plenty of space available for a more complicated design!
 
@@ -43,7 +43,32 @@ Tiny Tapeout is an educational project that aims to make it easier and cheaper t
 
 To learn more and get started, visit https://tinytapeout.com.
 
-## Analog projects
+Analog design is fairly new in the Tiny Tapeout ecosystem. For specifications and 
+instructions, see the [analog specs page](https://tinytapeout.com/specs/analog/).
 
-For specifications and instructions, see the [analog specs page](https://tinytapeout.com/specs/analog/).
+## Most Important Tools Used
 
+This is what I used during this project.  
+
+### Software Tools (All Open Source)
+
+* [Magic VLSI Layout Tool](http://opencircuitdesign.com/magic/) - The 1980's VLSI CAD tool from 
+Berkeley, updated and open sourced.
+* [Xschem Schematic Editor](http://repo.hu/projects/xschem/xschem_man/xschem_man.html) - Tuned for VLSI design.
+* [NGSPICE](https://ngspice.sourceforge.io/) - A flavor of SPICE tuned for VLSI and mixed signal design.
+* [OpenLane Toolchain for Digital Synthesis/Layout](https://efabless.com/openlane)
+
+### Books
+
+None of these books are particularly new. I am working from early 
+editions of all - easily found used on E-Bay.
+
+* Microelectronic Circuits (Adel Sedra and Kenneth Smith)
+* CMOS Circuit Design, Layout, and Simulation (R. Jacob Baker)
+* Fundamentals of Microelectronics (Behzad Razavi)
+* Design of Analog CMOS (Behzad Razavi)
+
+### E-Books/Free Books
+
+* [Modern Semiconductor Devices for Integrated Circuits (Chenming Hu)](https://www.chu.berkeley.edu/modern-semiconductor-devices-for-integrated-circuits-chenming-calvin-hu-2010/)
+* [Analysis and Design of Elementary MOS Amplifier Stages (Boris Murmann)](https://github.com/bmurmann/Book-on-MOS-stages/blob/main/book/Analysis%20and%20Design%20of%20Elementary%20MOS%20Amplifier%20Stages.pdf)
